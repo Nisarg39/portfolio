@@ -1,0 +1,23 @@
+Video followed - https://www.youtube.com/watch?v=0fYi8SGA20k&t=600s
+
+1.Run this command to install vite tool rather using create-react-app 
+
+npm create vite@latest ./ -- --template react
+
+install tailwind css - 
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+install additional libraries 
+
+npm install --legacy-peer-deps @react-three/fiber @react-three/drei maath react-tilt 
+react-vertical-timeline-component @emailjs/browser framer-motion react-router-dom
+npm install --legacy-peer-deps three
+
+-- to get 3d models for website search - 3d models download 
+and visit any website and download 3d models (best site is sketchfab.com)
+
+visit https://www.emailjs.com/ to configure email id for contact 
+
+Copy the the service code , template code and public key and configure it in backend
