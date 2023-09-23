@@ -21,7 +21,7 @@ import {
     shopify,
     carrent,
     employeereviewsystem,
-    tripguide,
+    imdbClone,
     threejs,
   } from "../assets";
   
@@ -257,8 +257,8 @@ import {
         //   color: "pink-text-gradient",
         // },
       ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: imdbClone,
+      source_code_link: "https://github.com/Nisarg39/imdbClone",
     },
   ];
   

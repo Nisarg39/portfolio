@@ -28,7 +28,7 @@ import tesla from "./company/tesla.png";
 
 import carrent from "./carrent.png";
 import employeereviewsystem from "./employeereviewsystem.png";
-import tripguide from "./tripguide.png";
+import imdbClone from "./imdbClone.png";
 
 export {
   logo,
@@ -58,5 +58,5 @@ export {
   tesla,
   carrent,
   employeereviewsystem,
-  tripguide,
+  imdbClone,
 };
