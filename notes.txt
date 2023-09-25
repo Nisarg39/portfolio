@@ -1,5 +1,8 @@
 Video followed - https://www.youtube.com/watch?v=0fYi8SGA20k&t=600s
 
+
+To deploy vite project follow this website carefully - https://vitejs.dev/guide/static-deploy.html
+
 1.Run this command to install vite tool rather using create-react-app 
 
 npm create vite@latest ./ -- --template react
