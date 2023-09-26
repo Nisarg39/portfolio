@@ -23,6 +23,7 @@ import {
     employeereviewsystem,
     imdbClone,
     threejs,
+    shoppingcart
   } from "../assets";
   
   export const navLinks = [
@@ -245,11 +246,11 @@ import {
         "Search for a Movie or Web Series , get reviews and ratings before watching the content. Save Movie in favourites to keep a reminder for later. Get summary and more details once you select the movie you want to watch. Built on pure VanillaJS without any 3rd party library",
       tags: [
         {
-          name: "VanillaJS",
+          name: "vanillaJS",
           color: "blue-text-gradient",
         },
         {
-          name: "OMDB Api",
+          name: "omdb api",
           color: "green-text-gradient",
         },
         // {
@@ -259,6 +260,27 @@ import {
       ],
       image: imdbClone,
       source_code_link: "https://github.com/Nisarg39/imdbClone",
+    },
+    {
+      name: "Shopping Cart(Realtime Update)",
+      description:
+        "Update shopping cart data in Realtime using Firebase to store data. Built using ReactJs to make UI response faster for the client using State management.All CRUD operations done using Firebase",
+      tags: [
+        {
+          name: "Reactjs",
+          color: "blue-text-gradient",
+        },
+        // {
+        //   name: "",
+        //   color: "green-text-gradient",
+        // },
+        {
+          name: "firebase",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: shoppingcart,
+      source_code_link: "https://github.com/Nisarg39/cart",
     },
   ];
   

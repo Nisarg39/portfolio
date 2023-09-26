@@ -51,7 +51,7 @@ const About = () => {
         Making WebApps with best practices for responsive, scalable ,
         Simple Solutions and User-Friendly UI.
         Being a Quick Learner and undertanding 
-        requirements clearly are the best skills i owe.
+        requirements clearly are the best skills i own.
         Looking forward to working with you
       </motion.p>
       <div className='mt-20 flex flex-wrap gap-10'>

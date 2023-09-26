@@ -29,6 +29,7 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import employeereviewsystem from "./employeereviewsystem.png";
 import imdbClone from "./imdbClone.png";
+import shoppingcart from "./shoppingcart.png";
 
 export {
   logo,
@@ -59,4 +60,5 @@ export {
   carrent,
   employeereviewsystem,
   imdbClone,
+  shoppingcart
 };
