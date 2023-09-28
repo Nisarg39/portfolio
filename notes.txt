@@ -24,3 +24,5 @@ and visit any website and download 3d models (best site is sketchfab.com)
 visit https://www.emailjs.com/ to configure email id for contact 
 
 Copy the the service code , template code and public key and configure it in backend
+
+do not force push this on github . it will show a blank page on deployment
