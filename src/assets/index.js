@@ -29,8 +29,10 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import employeereviewsystem from "./employeereviewsystem.png";
 import imdbClone from "./imdbClone.png";
-import shoppingcart from "./shoppingcart.png";
-
+import nisarg_portal from "./nisarg_client_portal.png";
+import cravita_logo from './company/cravita_logo.jpeg'
+import smartbuy from './smartbuy.png'
+import takalkar from './company/takalkar_logo.ico'
 export {
   logo,
   backend,
@@ -60,5 +62,8 @@ export {
   carrent,
   employeereviewsystem,
   imdbClone,
-  shoppingcart
+  nisarg_portal,
+  cravita_logo,
+  smartbuy,
+  takalkar
 };

@@ -17,13 +17,16 @@ import {
     docker,
     meta,
     starbucks,
+    cravita_logo,
     tesla,
     shopify,
     carrent,
     employeereviewsystem,
     imdbClone,
     threejs,
-    shoppingcart
+    nisarg_portal,
+    smartbuy,
+    takalkar,
   } from "../assets";
   
   export const navLinks = [
@@ -118,9 +121,9 @@ import {
   const experiences = [
     {
       title: "Intern",
-      company_name: "Cravita Technoligies Pvt Ltd",
-      icon: starbucks,
-      iconBg: "#383E56",
+      company_name: "Cravita Technologies Pvt Ltd",
+      icon: cravita_logo,
+      iconBg: "#E6DEDD",
       date: "March 2021 - August 2021",
       points: [
         "Developing Front-End for a Non-Banking Financial Company.",
@@ -129,19 +132,19 @@ import {
         "Participating in code reviews and trained with industry standard practises",
       ],
     },
-    // {
-    //   title: "React Native Developer",
-    //   company_name: "Tesla",
-    //   icon: tesla,
-    //   iconBg: "#E6DEDD",
-    //   date: "Jan 2021 - Feb 2022",
-    //   points: [
-    //     "Developing and maintaining web applications using React.js and other related technologies.",
-    //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-    //     "Implementing responsive design and ensuring cross-browser compatibility.",
-    //     "Participating in code reviews and providing constructive feedback to other developers.",
-    //   ],
-    // },
+    {
+      title: "Freelance Web Developer",
+      company_name: "Takalkar Academy",
+      icon: takalkar,
+      iconBg: "#E6DEDD",
+      date: "Feb 2024 - Till Date",
+      points: [
+        "Co-ordinating with Marketing Team and work accordingly with their vision",
+        "Designing (FrontEnd, BackEnd), SEO optimization and providing utilities to Staff and Students",
+        "Handling deployment on Vercel , Mantaining Database from Mongodb Atlas, Currently working on LMS",
+        "Impact - Website is the most visited Digital Platform, Website appears First before any social account",
+      ],
+    },
     // {
     //   title: "Web Developer",
     //   company_name: "Shopify",
@@ -199,12 +202,12 @@ import {
   
   const projects = [
     {
-      name: "Habit Tracker",
+      name: "SmartBuy",
       description:
-        "Create and keep a track on your habits.Also a simple API function to integrate in your personal app. Built on NodeJs using ExpressJS FrameWork. EJS used for Server-Side rendering. Used MVC Architecture for scalability.  To know more about API click on the github icon above. ",
+        "Keep a Track of your favourite Amazon Product and get notified when the product price falls to to its new low price so that you can but the product at the price which you want. We fetch products information daily so that you dont need to take care about the price fall",
       tags: [
         {
-          name: "nodejs",
+          name: "nextjs",
           color: "blue-text-gradient",
         },
         {
@@ -212,12 +215,35 @@ import {
           color: "green-text-gradient",
         },
         {
-          name: "bootstrap",
+          name: "puppetier",
           color: "pink-text-gradient",
         },
       ],
-      image: carrent,
+      image: smartbuy,
       source_code_link: "https://github.com/Nisarg39/habit-tracker-mern",
+      deployed_link: "https://bestbuy-psi.vercel.app/"
+    },
+    {
+      name: "NISARG's CLIENT PORTAL",
+      description:
+        "A web application that helps the client to manage their Sessions done by Me. Also, it helps me to manage my clients and their sessions. You can check the recruiter's view for dashboard demo and contact me if you want to manage your sessions from my portal",
+      tags: [
+        {
+          name: "nextjs",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "shadcn",
+          color: "green-text-gradient",
+        },
+        {
+          name: "tailwind",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: nisarg_portal,
+      source_code_link: "https://github.com/Nisarg39/nisarg_client",
+      deployed_link: "https://nisarg-client.vercel.app/"
     },
     {
       name: "Employee Review System",
@@ -239,49 +265,30 @@ import {
       ],
       image: employeereviewsystem,
       source_code_link: "https://github.com/Nisarg39/Employee_Review_System",
+      deployed_link: "https://employee-review-56zp.onrender.com/"
     },
-    {
-      name: "IMDB Clone",
-      description:
-        "Search for a Movie or Web Series , get reviews and ratings before watching the content. Save Movie in favourites to keep a reminder for later. Get summary and more details once you select the movie you want to watch. Built on pure VanillaJS without any 3rd party library",
-      tags: [
-        {
-          name: "vanillaJS",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "omdb api",
-          color: "green-text-gradient",
-        },
-        // {
-        //   name: "css",
-        //   color: "pink-text-gradient",
-        // },
-      ],
-      image: imdbClone,
-      source_code_link: "https://github.com/Nisarg39/imdbClone",
-    },
-    {
-      name: "Shopping Cart(Realtime Update)",
-      description:
-        "Update shopping cart data in Realtime using Firebase to store data. Built using ReactJs to make UI response faster for the client using State management.All CRUD operations done using Firebase",
-      tags: [
-        {
-          name: "Reactjs",
-          color: "blue-text-gradient",
-        },
-        // {
-        //   name: "",
-        //   color: "green-text-gradient",
-        // },
-        {
-          name: "firebase",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: shoppingcart,
-      source_code_link: "https://github.com/Nisarg39/cart",
-    },
+    // {
+    //   name: "IMDB Clone",
+    //   description:
+    //     "Search for a Movie or Web Series , get reviews and ratings before watching the content. Save Movie in favourites to keep a reminder for later. Get summary and more details once you select the movie you want to watch. Built on pure VanillaJS without any 3rd party library",
+    //   tags: [
+    //     {
+    //       name: "vanillaJS",
+    //       color: "blue-text-gradient",
+    //     },
+    //     {
+    //       name: "omdb api",
+    //       color: "green-text-gradient",
+    //     },
+    //     // {
+    //     //   name: "css",
+    //     //   color: "pink-text-gradient",
+    //     // },
+    //   ],
+    //   image: imdbClone,
+    //   source_code_link: "https://github.com/Nisarg39/imdbClone",
+    //   deployed_link: "https://employee-review-56zp.onrender.com/users/signin"
+    // },
   ];
   
   export { services, technologies, experiences, testimonials, projects };

@@ -5,8 +5,9 @@ import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import { Navigate } from "react-router-dom";
 
-const ProjectCard = ({index, name, description, tags, image, source_code_link}) => {
+const ProjectCard = ({index, name, description, tags, image, source_code_link, deployed_link}) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
@@ -17,6 +18,7 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link}) 
         }}
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
       >
+        <a href={deployed_link} target="_blank" rel="noreferrer">
         <div className="relative w-full h-[230px]">
           <img src={image} alt={name} className="w-full h-full object-cover rounded-2xl" />
 
@@ -42,6 +44,7 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link}) 
             </p>
           ))}
         </div>
+        </a>
       </Tilt>
     </motion.div>
   )
