@@ -14,7 +14,7 @@ const Hero = () => {
 
   return (
     <section className='relative w-full h-screen mx-auto'>
-      <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-5 z-10`}>
+      <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-5 z-20`}>
         
         {/* Left side - Decorative line (hidden on mobile) */}
         <div className='hidden lg:flex flex-col justify-center items-center mt-5'>
@@ -103,22 +103,22 @@ const Hero = () => {
       </div>
       {/* Computer Illustration - Responsive positioning */}
 
-      <div className='absolute inset-0 flex justify-center items-center lg:justify-end lg:items-center pointer-events-none px-4 lg:px-8 xl:px-16'>
+      <div className='absolute inset-0 flex justify-center items-center lg:justify-end lg:items-center pointer-events-none px-4 lg:px-8 xl:px-16 z-10'>
         <motion.div 
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className='relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-md xl:max-w-lg lg:mr-8 xl:mr-16'
+          className='relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-md xl:max-w-lg lg:mr-8 xl:mr-16 mt-[300px] lg:mt-0'
         >
           {/* RGB Gaming Case */}
           <div className='relative'>
             {/* RGB Ambient Glow */}
             <motion.div 
-              className='absolute -inset-4 bg-gradient-to-r from-purple-500/20 via-cyan-500/20 to-purple-500/20 rounded-2xl blur-lg'
+              className='absolute -inset-4 bg-gradient-to-r from-[#915eff]/20 via-[#915eff]/10 to-[#915eff]/20 rounded-2xl blur-lg'
               animate={{ 
                 background: [
-                  'linear-gradient(45deg, rgba(145,94,255,0.2), rgba(0,255,255,0.2), rgba(145,94,255,0.2))',
-                  'linear-gradient(45deg, rgba(0,255,255,0.2), rgba(145,94,255,0.2), rgba(0,255,255,0.2))'
+                  'linear-gradient(45deg, rgba(145,94,255,0.2), rgba(145,94,255,0.1), rgba(145,94,255,0.2))',
+                  'linear-gradient(45deg, rgba(145,94,255,0.1), rgba(145,94,255,0.2), rgba(145,94,255,0.1))'
                 ]
               }}
               transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
@@ -247,7 +247,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
+      <div className='absolute xs:bottom-10 bottom-4 w-full flex justify-center items-center z-30 mt-[650px] lg:mt-0'>
         <a href="#about">
           <div className='w-[35px] h-[64px] rounded-3xl border-4 
           border-secondary flex justify-center items-start p-2'>

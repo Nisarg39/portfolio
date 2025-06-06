@@ -27,6 +27,8 @@ import {
     nisarg_portal,
     smartbuy,
     takalkar,
+    vichar,
+    vicharwebsite
   } from "../assets";
   
   export const navLinks = [
@@ -120,6 +122,32 @@ import {
   
   const experiences = [
     {
+      title: "Full Stack Developer",
+      company_name: "Vichar Group",
+      icon: vichar,
+      iconBg: "#E6DEDD",
+      date: "October 2024 - Till Date",
+      points: [
+        "Created Full Stack Web App with NextJS, MongoDB, ExpressJS and Tailwind CSS",
+        "Designing (FrontEnd, BackEnd), SEO optimization and providing utilities to Staff and Students",
+        "Developed Vichar App with React Native Expo for Android and IOS platforms",
+        "Created an exam portal that simulates competitive exams with real-time analytics using AWS and React Vite",
+      ],
+    },
+    {
+      title: "Freelance Web Developer",
+      company_name: "Takalkar Academy",
+      icon: takalkar,
+      iconBg: "#E6DEDD",
+      date: "Feb 2024 - Sept 2024",
+      points: [
+        "Co-ordinating with Marketing Team and work accordingly with their vision",
+        "Designing (FrontEnd, BackEnd), SEO optimization and providing utilities to Staff and Students",
+        "Handling deployment on Vercel , Mantaining Database from Mongodb Atlas, Currently working on LMS",
+        "Impact - Website is the most visited Digital Platform, Website appears First before any social account",
+      ],
+    },
+    {
       title: "Intern",
       company_name: "Cravita Technologies Pvt Ltd",
       icon: cravita_logo,
@@ -132,45 +160,7 @@ import {
         "Participating in code reviews and trained with industry standard practises",
       ],
     },
-    {
-      title: "Freelance Web Developer",
-      company_name: "Takalkar Academy",
-      icon: takalkar,
-      iconBg: "#E6DEDD",
-      date: "Feb 2024 - Till Date",
-      points: [
-        "Co-ordinating with Marketing Team and work accordingly with their vision",
-        "Designing (FrontEnd, BackEnd), SEO optimization and providing utilities to Staff and Students",
-        "Handling deployment on Vercel , Mantaining Database from Mongodb Atlas, Currently working on LMS",
-        "Impact - Website is the most visited Digital Platform, Website appears First before any social account",
-      ],
-    },
-    // {
-    //   title: "Web Developer",
-    //   company_name: "Shopify",
-    //   icon: shopify,
-    //   iconBg: "#383E56",
-    //   date: "Jan 2022 - Jan 2023",
-    //   points: [
-    //     "Developing and maintaining web applications using React.js and other related technologies.",
-    //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-    //     "Implementing responsive design and ensuring cross-browser compatibility.",
-    //     "Participating in code reviews and providing constructive feedback to other developers.",
-    //   ],
-    // },
-    // {
-    //   title: "Full stack Developer",
-    //   company_name: "Meta",
-    //   icon: meta,
-    //   iconBg: "#E6DEDD",
-    //   date: "Jan 2023 - Present",
-    //   points: [
-    //     "Developing and maintaining web applications using React.js and other related technologies.",
-    //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-    //     "Implementing responsive design and ensuring cross-browser compatibility.",
-    //     "Participating in code reviews and providing constructive feedback to other developers.",
-    //   ],
-    // },
+    
   ];
   
   const testimonials = [
@@ -246,49 +236,27 @@ import {
       deployed_link: "https://nisarg-client.vercel.app/"
     },
     {
-      name: "Employee Review System",
+      name: "Vichar Group",
       description:
-        "Web application that enables employer to know their employees point of view using review system for getting feedback of the employees. Use of Passport Local Strategy to maintain security. Lot of control over data given to administrator for better maintainance of data",
+        "Vichar Group is a well known Academic Institute for Competitive Exams in India. I am working with them as a Full Stack Developer and helping them to build their WebApp and Mobile App for Students and Staff. The web app is built using NextJS, MongoDB, ExpressJS and Tailwind CSS",
       tags: [
         {
-          name: "nodejs",
+          name: "nextjs",
           color: "blue-text-gradient",
         },
         {
-          name: "mongodb",
+          name: "react-native",
           color: "green-text-gradient",
         },
         {
-          name: "bootstrap",
+          name: "aws",
           color: "pink-text-gradient",
         },
       ],
-      image: employeereviewsystem,
-      source_code_link: "https://github.com/Nisarg39/Employee_Review_System",
-      deployed_link: "https://employee-review-56zp.onrender.com/"
+      image: vicharwebsite,
+      source_code_link: "https://github.com/Nisarg39/vicharGroup",
+      deployed_link: "https://www.vichargroup.com"
     },
-    // {
-    //   name: "IMDB Clone",
-    //   description:
-    //     "Search for a Movie or Web Series , get reviews and ratings before watching the content. Save Movie in favourites to keep a reminder for later. Get summary and more details once you select the movie you want to watch. Built on pure VanillaJS without any 3rd party library",
-    //   tags: [
-    //     {
-    //       name: "vanillaJS",
-    //       color: "blue-text-gradient",
-    //     },
-    //     {
-    //       name: "omdb api",
-    //       color: "green-text-gradient",
-    //     },
-    //     // {
-    //     //   name: "css",
-    //     //   color: "pink-text-gradient",
-    //     // },
-    //   ],
-    //   image: imdbClone,
-    //   source_code_link: "https://github.com/Nisarg39/imdbClone",
-    //   deployed_link: "https://employee-review-56zp.onrender.com/users/signin"
-    // },
   ];
   
   export { services, technologies, experiences, testimonials, projects };

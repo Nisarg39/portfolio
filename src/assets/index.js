@@ -33,6 +33,8 @@ import nisarg_portal from "./nisarg_client_portal.png";
 import cravita_logo from './company/cravita_logo.jpeg'
 import smartbuy from './smartbuy.png'
 import takalkar from './company/takalkar_logo.ico'
+import vichar from "./company/vichar_logo.png"
+import vicharwebsite from "./vicharwebsite.png";
 export {
   logo,
   backend,
@@ -65,5 +67,7 @@ export {
   nisarg_portal,
   cravita_logo,
   smartbuy,
-  takalkar
+  takalkar,
+  vichar,
+  vicharwebsite,
 };
