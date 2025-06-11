@@ -1,12 +1,12 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { MessageCircle, Linkedin } from "lucide-react";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
-
 
 const Contact = () => {
   const formRef = useRef();
@@ -64,23 +64,91 @@ const Contact = () => {
   }
 
   return (
-    <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
+    <section id="footer" className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
       <motion.div
         variants={slideIn('left', "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
       >
-        <p className={styles.sectionSubText}>
-          Get in touch
-        </p>
+        <div className="flex justify-between items-start mb-6">
+          <div>
+            <p className={styles.sectionSubText}>
+              Get in touch
+            </p>
 
-        <p className={styles.sectionHeadText}>
-          Contact.
-        </p>
+            <h2 className={styles.sectionHeadText}>
+              Contact.
+            </h2>
+          </div>
+
+          <div className="flex gap-3 mt-2">
+            {/* WhatsApp Icon */}
+            <motion.a
+              href="https://wa.me/+918888215802"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative group bg-black-100 p-3 rounded-full border border-secondary/10 hover:border-green-500/30 shadow-inner hover:shadow-green-500/10 transition-all duration-300 cursor-pointer"
+              whileHover={{ 
+                scale: 1.05,
+                y: -1,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.4 }}
+            >
+              <MessageCircle 
+                size={20} 
+                className="text-secondary group-hover:text-green-400 transition-colors duration-300" 
+              />
+              
+              {/* Inner glow effect */}
+              <div className="absolute inset-1 rounded-full bg-green-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              {/* Tooltip */}
+              <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-black-200 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap border border-secondary/20">
+                WhatsApp
+                <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-black-200 rotate-45 border-l border-t border-secondary/20"></div>
+              </div>
+            </motion.a>
+            
+            {/* LinkedIn Icon */}
+            <motion.a
+              href="https://www.linkedin.com/in/nisarg-shah-413b731ba/?originalSubdomain=in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative group bg-black-100 p-3 rounded-full border border-secondary/10 hover:border-blue-500/30 shadow-inner hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer"
+              whileHover={{ 
+                scale: 1.05,
+                y: -1,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.4 }}
+            >
+              <Linkedin 
+                size={20} 
+                className="text-secondary group-hover:text-blue-400 transition-colors duration-300" 
+              />
+              
+              {/* Inner glow effect */}
+              <div className="absolute inset-1 rounded-full bg-blue-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              {/* Tooltip */}
+              <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-black-200 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap border border-secondary/20">
+                LinkedIn
+                <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-black-200 rotate-45 border-l border-t border-secondary/20"></div>
+              </div>
+            </motion.a>
+          </div>
+        </div>
 
         <form 
           ref={formRef}
           onSubmit={handleSubmit}
-          className="mt-12 flex flex-col gap-8"
+          className="mt-6 flex flex-col gap-8"
         >
           <label className="flex flex-col">
 
@@ -140,7 +208,7 @@ const Contact = () => {
       >
         <EarthCanvas />
       </motion.div>
-    </div>
+    </section>
   )
 }
 
