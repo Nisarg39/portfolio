@@ -1,8 +1,23 @@
-import {motion} from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import {styles} from '../styles';
 import { Code, Server, Database, Layers, Smartphone, Network } from 'lucide-react';
 
 const Hero = () => {
+  const { scrollYProgress } = useScroll();
+  
+  // Transform values for parallax effects
+  const mainContentY = useTransform(scrollYProgress, [0, 0.5], ['0%', '-50%']);
+  const computerY = useTransform(scrollYProgress, [0, 0.5], ['0%', '-100%']);
+  const opacityTransform = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  
+  // Floating elements animation variants
+  const floatingElements = Array.from({ length: 15 }, (_, i) => ({
+    initialX: Math.random() * 100,
+    initialY: Math.random() * 100,
+    delay: Math.random() * 2,
+    duration: 3 + Math.random() * 2
+  }));
+
   const techStack = [
     { name: 'React', icon: Code, iconColor: 'text-blue-400' },
     { name: 'Node.js', icon: Server, iconColor: 'text-green-400' },
@@ -13,8 +28,45 @@ const Hero = () => {
   ];
 
   return (
-    <section id='home' className='relative w-full h-screen mx-auto'>
-      <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-5 z-20`}>
+    <section id='home' className='relative w-full h-screen mx-auto overflow-hidden'
+             style={{ perspective: '1000px' }}>
+      {/* Parallax Background Elements */}
+      {floatingElements.map((el, index) => (
+        <motion.div
+          key={index}
+          style={{
+            position: 'absolute',
+            left: `${el.initialX}%`,
+            top: `${el.initialY}%`,
+            width: '2px',
+            height: '2px',
+            background: '#915eff',
+            borderRadius: '50%',
+            filter: 'blur(1px)',
+            zIndex: 0
+          }}
+          animate={{
+            y: [0, 100, 0],
+            opacity: [0.2, 1, 0.2],
+            scale: [1, 2, 1]
+          }}
+          transition={{
+            duration: el.duration,
+            delay: el.delay,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+      ))}
+
+      {/* Main Content with Parallax */}
+      <motion.div 
+        style={{ 
+          y: mainContentY,
+          opacity: opacityTransform,
+        }}
+        className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-5 z-20`}
+      >
         
         {/* Left side - Decorative line (hidden on mobile) */}
         <div className='hidden lg:flex flex-col justify-center items-center mt-5'>
@@ -100,10 +152,17 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>      
-      </div>
-      {/* Computer Illustration - Responsive positioning */}
-
-      <div className='absolute inset-0 flex justify-center items-center lg:justify-end lg:items-center pointer-events-none px-4 lg:px-8 xl:px-16 z-10'>
+      </motion.div>
+      {/* Computer Illustration with Enhanced Parallax */}
+      <motion.div
+        style={{ 
+          y: computerY,
+          opacity: opacityTransform,
+          rotateX: useTransform(scrollYProgress, [0, 0.5], [0, 15]),
+          scale: useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
+        }}
+        className='absolute inset-0 flex justify-center items-center lg:justify-end lg:items-center pointer-events-none px-4 lg:px-8 xl:px-16 z-10'
+      >
         <motion.div 
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -245,9 +304,60 @@ const Hero = () => {
             </div>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
 
-      <div className='absolute xs:bottom-10 bottom-4 w-full flex justify-center items-center z-30 mt-[650px] lg:mt-0'>
+      {/* Enhanced Transition Overlay */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '150vh',
+          background: `linear-gradient(
+            to top,
+            rgba(16, 13, 37, 1) 25%,
+            rgba(16, 13, 37, 0.9) 50%,
+            rgba(16, 13, 37, 0.5) 75%,
+            rgba(16, 13, 37, 0) 100%
+          )`,
+          opacity: useTransform(
+            scrollYProgress,
+            [0, 0.25, 0.5],
+            [0, 0.5, 1]
+          ),
+          translateY: useTransform(
+            scrollYProgress,
+            [0, 1],
+            ['100%', '0%']
+          ),
+          zIndex: 30
+        }}
+      />
+
+      {/* Solid Background Color Layer */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '25vh',
+          backgroundColor: 'rgb(16, 13, 37)',
+          opacity: useTransform(
+            scrollYProgress,
+            [0.3, 0.5],
+            [0, 1]
+          ),
+          zIndex: 29
+        }}
+      />
+
+      {/* Bottom Scroll Indicator */}
+      <motion.div
+        style={{ opacity: useTransform(scrollYProgress, [0, 0.2], [1, 0]) }}
+        className='absolute xs:bottom-10 bottom-4 w-full flex justify-center items-center z-30 mt-[650px] lg:mt-0'
+      >
         <a href="#about">
           <div className='w-[35px] h-[64px] rounded-3xl border-4 
           border-secondary flex justify-center items-start p-2'>
@@ -264,9 +374,9 @@ const Hero = () => {
             />
           </div>
         </a>
-      </div>
+      </motion.div>
     </section>
-  )
+  );
 }
 
 export default Hero

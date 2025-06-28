@@ -214,7 +214,7 @@ import {
       deployed_link: "https://bestbuy-psi.vercel.app/"
     },
     {
-      name: "NISARG's CLIENT PORTAL",
+      name: "My Client Portal",
       description:
         "A web application that helps the client to manage their Sessions done by Me. Also, it helps me to manage my clients and their sessions. You can check the recruiter's view for dashboard demo and contact me if you want to manage your sessions from my portal",
       tags: [

@@ -202,3 +202,27 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
   }
 }
+
+.parallax-wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  perspective: 10px;
+  transform-style: preserve-3d;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(145, 94, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(145, 94, 255, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}

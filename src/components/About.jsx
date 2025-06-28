@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import {motion} from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react'
+import {motion, useScroll, useTransform} from 'framer-motion';
 import {styles } from '../styles';
 import {fadeIn, textVariant} from '../utils/motion';
 import { SectionWrapper } from '../hoc';
@@ -21,6 +21,12 @@ import {
 } from 'lucide-react';
 
 const TechMarquee = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
   const technologies = [
     { name: 'React.js', icon: ReactIcon, iconColor: 'text-blue-400' },
     { name: 'Node.js', icon: Server, iconColor: 'text-green-400' },
@@ -37,122 +43,155 @@ const TechMarquee = () => {
     { name: 'Figma', icon: Palette, iconColor: 'text-pink-400' },
   ];
 
-  const duplicatedTechnologies = [...technologies, ...technologies, ...technologies, ...technologies];
+  const duplicatedTechnologies = [...technologies, ...technologies, ...technologies];
+  
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -10 * technologies.length * 3]
+  );
 
   return (
-    <div className="w-full overflow-hidden py-8 relative">
-      {/* Carbon Fiber Strips Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Horizontal Carbon Fiber Strips */}
+    <div 
+      ref={containerRef}
+      className="w-full overflow-hidden relative min-w-full mx-auto py-8"
+      style={{
+        background: '#050816'
+      }}
+    >
+      {/* Left side reveal effect */}
+      <div className="absolute left-0 top-0 h-full z-10 flex pointer-events-none">
+        {/* Solid edge */}
         <div 
-          className="absolute inset-0"
+          className="w-[80px] h-full"
           style={{
-            backgroundColor: '#0a0a0a',
-            backgroundImage: `
-              repeating-linear-gradient(
-                0deg,
-                #000000 0px,
-                #1a1a1a 2px,
-                #000000 4px,
-                #0d0d0d 6px
-              ),
-              repeating-linear-gradient(
-                90deg,
-                transparent 0px,
-                rgba(255,255,255,0.03) 1px,
-                transparent 2px
-              )
-            `,
-            backgroundSize: '100% 8px, 4px 100%',
-            opacity: 0.6
+            background: '#050816'
           }}
         />
-        
-        {/* Diagonal Carbon Weave Pattern */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
-              linear-gradient(-45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
-              linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.02) 75%),
-              linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.02) 75%)
-            `,
-            backgroundSize: '6px 6px',
-            backgroundPosition: '0 0, 0 3px, 3px -3px, -3px 0px',
-            opacity: 0.3
-          }}
-        />
+        {/* Fade out effect */}
+        <div className="relative w-[180px] h-full">
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(to right, 
+                #050816 0%,
+                rgba(5, 8, 22, 1) 10%,
+                rgba(5, 8, 22, 0.9) 30%,
+                rgba(5, 8, 22, 0.7) 50%,
+                rgba(5, 8, 22, 0.3) 70%,
+                rgba(5, 8, 22, 0.1) 85%,
+                transparent 100%)`,
+            }}
+          />
+        </div>
+      </div>
 
-        {/* Animated Carbon Fiber Shine Effect */}
-        <motion.div
-          className="absolute inset-0"
+      {/* Right side reveal effect */}
+      <div className="absolute right-0 top-0 h-full z-10 flex pointer-events-none">
+        {/* Fade out effect */}
+        <div className="relative w-[180px] h-full">
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(to left, 
+                #050816 0%,
+                rgba(5, 8, 22, 1) 10%,
+                rgba(5, 8, 22, 0.9) 30%,
+                rgba(5, 8, 22, 0.7) 50%,
+                rgba(5, 8, 22, 0.3) 70%,
+                rgba(5, 8, 22, 0.1) 85%,
+                transparent 100%)`,
+            }}
+          />
+        </div>
+        {/* Solid edge */}
+        <div 
+          className="w-[80px] h-full"
           style={{
-            background: 'linear-gradient(90deg, transparent 0%, rgba(145,94,255,0.1) 50%, transparent 100%)',
-            width: '200%',
-          }}
-          animate={{
-            x: ['-100%', '100%']
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "linear"
+            background: '#050816'
           }}
         />
       </div>
 
-      {/* Gradient overlays for smooth fade */}
-      <div className="absolute left-0 top-0 w-[100px] h-full bg-gradient-to-r from-[#050816] to-transparent z-10"></div>
-      <div className="absolute right-0 top-0 w-[100px] h-full bg-gradient-to-l from-[#050816] to-transparent z-10"></div>
-      
+      {/* Marquee content */}
       <motion.div
-        className="flex whitespace-nowrap relative z-20"
-        animate={{
-          x: [0, -80 * technologies.length]
-        }}
-        transition={{
-          x: {
-            repeat: Infinity,
-            repeatType: "mirror",
-            duration: 6,
-            ease: "linear",
-          },
-        }}
+        className="flex whitespace-nowrap relative z-5 px-[100px]"
+        style={{ x }}
       >
         {duplicatedTechnologies.map((tech, index) => (
           <motion.span
             key={index}
-            className="mx-4 text-white text-lg font-medium flex-shrink-0 cursor-pointer flex items-center gap-2 relative"
-            style={{
-              textShadow: '0 0 10px rgba(0,0,0,0.8)'
-            }}
-            whileHover={{ 
-              scale: 1.4,
-              color: '#915EFF',
-              transition: { 
-                duration: 2,
-                ease: "easeOut"
-              }
-            }}
+            className="mx-3 text-white text-lg font-medium flex-shrink-0 flex items-center gap-2"
           >
-            {/* Individual tech item carbon fiber backing */}
-            <div 
-              className="absolute inset-0 rounded-lg -z-10"
-              style={{
-                background: 'linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(26,26,26,0.4) 100%)',
-                backdropFilter: 'blur(2px)',
-                border: '1px solid rgba(255,255,255,0.05)'
-              }}
-            />
-            
-            <tech.icon className={`w-5 h-5 ${tech.iconColor} drop-shadow-lg`} />
+            <tech.icon className={`w-5 h-5 ${tech.iconColor}`} />
             {tech.name}
             <span className="text-[#915EFF]">•</span>
           </motion.span>
         ))}
       </motion.div>
     </div>
+  );
+};
+
+const NeonButton = ({ children, onClick, isExpanded }) => {
+  return (
+    <motion.button
+      onClick={onClick}
+      whileHover={{ 
+        scale: 1.05,
+        animation: "none",
+        boxShadow: "0 0 2px #915EFF, 0 0 4px #915EFF, 0 0 8px #915EFF",
+        border: "1px solid #915EFF"
+      }}
+      whileTap={{ scale: 0.95 }}
+      className='mt-6 bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold relative group'
+      style={{
+        animation: "neonPulse 2s infinite",
+        animationPlayState: "running",
+        textShadow: "0 0 2px rgba(145, 94, 255, 0.3)",
+      }}
+    >
+      <div className="relative z-10 flex items-center gap-2">
+        {children}
+      </div>
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
+        style={{
+          background: "rgba(145, 94, 255, 0.05)",
+          backdropFilter: "blur(4px)",
+          boxShadow: "inset 0 0 2px rgba(145, 94, 255, 0.5)"
+        }}
+      />
+      <style jsx>{`
+        @keyframes neonPulse {
+          0% {
+            box-shadow: 0 0 2px #915EFF,
+                        0 0 4px #915EFF,
+                        0 0 6px rgba(145, 94, 255, 0.8);
+            border: 1px solid rgba(145, 94, 255, 0.6);
+            text-shadow: 0 0 1px rgba(145, 94, 255, 0.5);
+          }
+          50% {
+            box-shadow: 0 0 4px #915EFF,
+                        0 0 8px #915EFF,
+                        0 0 12px rgba(145, 94, 255, 0.8),
+                        0 0 16px rgba(145, 94, 255, 0.6);
+            border: 1px solid rgba(145, 94, 255, 0.9);
+            text-shadow: 0 0 2px rgba(145, 94, 255, 0.7);
+          }
+          100% {
+            box-shadow: 0 0 2px #915EFF,
+                        0 0 4px #915EFF,
+                        0 0 6px rgba(145, 94, 255, 0.8);
+            border: 1px solid rgba(145, 94, 255, 0.6);
+            text-shadow: 0 0 1px rgba(145, 94, 255, 0.5);
+          }
+        }
+        button:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+    </motion.button>
   );
 };
 
@@ -183,14 +222,17 @@ Ready to collaborate and bring your vision to life with cutting-edge web and mob
           {showMore ? fullText : firstParagraph}
         </p>
         
-        <motion.button
-          onClick={() => setShowMore(!showMore)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className='mt-6 bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary hover:bg-[#151030] transition-all duration-300 border border-transparent hover:border-[#915EFF] hover:shadow-lg hover:shadow-[#915EFF]/20'
-        >
-          {showMore ? 'Show Less' : 'Show More'}
-        </motion.button>
+        <NeonButton onClick={() => setShowMore(!showMore)} isExpanded={showMore}>
+          {showMore ? (
+            <>
+              Show Less <span className="rotate-180">↓</span>
+            </>
+          ) : (
+            <>
+              Show More <span>↓</span>
+            </>
+          )}
+        </NeonButton>
       </motion.div>
       
       <div className='mt-20'>
