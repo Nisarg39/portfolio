@@ -300,15 +300,49 @@ const Experience = () => {
 
           /* Responsive aurora effects */
           @media (max-width: 768px) {
-            .aurora-layer {
-              filter: blur(40px);
-              opacity: 0.4;
-              animation-duration: 20s;
-            }
-            
             .aurora-background {
-              width: 90%;
-              left: 5%;
+              width: 100%;
+              height: 100%;
+              left: 0;
+              top: 0;
+              opacity: 0.7;
+              transform: translateZ(0);
+              backface-visibility: hidden;
+              perspective: 1000px;
+            }
+
+            .aurora-layer {
+              filter: blur(25px);
+              opacity: 0.3;
+              transform-style: preserve-3d;
+              backface-visibility: hidden;
+              perspective: 1000px;
+              animation: none; /* Remove rotation animation */
+            }
+
+            /* Static positioning for layers */
+            .aurora-layer-1 {
+              background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), transparent);
+              top: 0;
+              left: 0;
+            }
+
+            .aurora-layer-2 {
+              background: linear-gradient(225deg, rgba(139, 92, 246, 0.2), transparent);
+              top: 0;
+              right: 0;
+            }
+
+            .aurora-layer-3 {
+              background: linear-gradient(315deg, rgba(6, 182, 212, 0.2), transparent);
+              bottom: 0;
+              left: 0;
+            }
+
+            .aurora-layer-4 {
+              background: linear-gradient(45deg, rgba(16, 185, 129, 0.2), transparent);
+              bottom: 0;
+              right: 0;
             }
           }
 
@@ -347,6 +381,26 @@ const Experience = () => {
             }
             100% {
               box-shadow: 0 0 0 0 rgba(145, 94, 255, 0);
+            }
+          }
+
+          @media screen and (max-width: 1169px) {
+            .timeline-container > div:first-of-type {
+              left: 31px !important;
+              width: 2px;
+              height: calc(100% - 50px) !important;
+              top: 60px !important;
+            }
+
+            /* Keep progress line centered */
+            .timeline-container > div:first-of-type > div {
+              left: 0 !important;
+              width: 100% !important;
+            }
+
+            /* Center dot indicator */
+            .timeline-container > div:first-of-type > div > div {
+              left: 50% !important;
             }
           }
         `}

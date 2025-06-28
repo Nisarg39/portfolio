@@ -54,7 +54,7 @@ const TechMarquee = () => {
   return (
     <div 
       ref={containerRef}
-      className="w-full overflow-hidden relative min-w-full mx-auto py-8"
+      className="w-full overflow-hidden relative min-w-full mx-auto py-12 sm:py-8"
       style={{
         background: '#050816'
       }}
@@ -63,23 +63,22 @@ const TechMarquee = () => {
       <div className="absolute left-0 top-0 h-full z-10 flex pointer-events-none">
         {/* Solid edge */}
         <div 
-          className="w-[80px] h-full"
+          className="w-[40px] sm:w-[80px] h-full"
           style={{
             background: '#050816'
           }}
         />
         {/* Fade out effect */}
-        <div className="relative w-[180px] h-full">
+        <div className="relative w-[100px] sm:w-[180px] h-full">
           <div 
             className="absolute inset-0"
             style={{
               background: `linear-gradient(to right, 
                 #050816 0%,
-                rgba(5, 8, 22, 1) 10%,
-                rgba(5, 8, 22, 0.9) 30%,
-                rgba(5, 8, 22, 0.7) 50%,
-                rgba(5, 8, 22, 0.3) 70%,
-                rgba(5, 8, 22, 0.1) 85%,
+                rgba(5, 8, 22, 0.95) 20%,
+                rgba(5, 8, 22, 0.8) 40%,
+                rgba(5, 8, 22, 0.4) 60%,
+                rgba(5, 8, 22, 0.2) 80%,
                 transparent 100%)`,
             }}
           />
@@ -89,24 +88,23 @@ const TechMarquee = () => {
       {/* Right side reveal effect */}
       <div className="absolute right-0 top-0 h-full z-10 flex pointer-events-none">
         {/* Fade out effect */}
-        <div className="relative w-[180px] h-full">
+        <div className="relative w-[100px] sm:w-[180px] h-full">
           <div 
             className="absolute inset-0"
             style={{
               background: `linear-gradient(to left, 
                 #050816 0%,
-                rgba(5, 8, 22, 1) 10%,
-                rgba(5, 8, 22, 0.9) 30%,
-                rgba(5, 8, 22, 0.7) 50%,
-                rgba(5, 8, 22, 0.3) 70%,
-                rgba(5, 8, 22, 0.1) 85%,
+                rgba(5, 8, 22, 0.95) 20%,
+                rgba(5, 8, 22, 0.8) 40%,
+                rgba(5, 8, 22, 0.4) 60%,
+                rgba(5, 8, 22, 0.2) 80%,
                 transparent 100%)`,
             }}
           />
         </div>
         {/* Solid edge */}
         <div 
-          className="w-[80px] h-full"
+          className="w-[40px] sm:w-[80px] h-full"
           style={{
             background: '#050816'
           }}
@@ -115,17 +113,17 @@ const TechMarquee = () => {
 
       {/* Marquee content */}
       <motion.div
-        className="flex whitespace-nowrap relative z-5 px-[100px]"
+        className="flex whitespace-nowrap relative z-5 px-[50px] sm:px-[100px]"
         style={{ x }}
       >
         {duplicatedTechnologies.map((tech, index) => (
           <motion.span
             key={index}
-            className="mx-3 text-white text-lg font-medium flex-shrink-0 flex items-center gap-2"
+            className="mx-2 sm:mx-3 text-white text-base sm:text-lg font-medium flex-shrink-0 flex items-center gap-1 sm:gap-2"
           >
-            <tech.icon className={`w-5 h-5 ${tech.iconColor}`} />
-            {tech.name}
-            <span className="text-[#915EFF]">•</span>
+            <tech.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${tech.iconColor}`} />
+            <span className="hidden sm:inline">{tech.name}</span>
+            <span className="text-[#915EFF] opacity-80">•</span>
           </motion.span>
         ))}
       </motion.div>
