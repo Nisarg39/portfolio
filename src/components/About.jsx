@@ -196,21 +196,34 @@ const NeonButton = ({ children, onClick, isExpanded }) => {
 const About = () => {
   const [showMore, setShowMore] = useState(false);
 
-  const firstParagraph = "I'm a passionate Full Stack Developer specializing in modern web technologies including React.js, Node.js, MongoDB, and Express.js. With expertise in the MERN stack and mobile app development using React Native and Expo, I create high-performance, scalable applications that deliver exceptional user experiences across web and mobile platforms.";
+  const firstParagraph = "Looking to hire a professional web developer? I'm Nisarg Shah, a Full Stack Developer specializing in custom website development, mobile app creation, and modern web solutions. With expertise in React.js, Node.js, MongoDB, and the MERN stack, I help businesses and entrepreneurs build high-performance, scalable applications that drive growth and deliver exceptional user experiences.";
 
-  const fullText = `I'm a passionate Full Stack Developer specializing in modern web technologies including React.js, Node.js, MongoDB, and Express.js. With expertise in the MERN stack and mobile app development using React Native and Expo, I create high-performance, scalable applications that deliver exceptional user experiences across web and mobile platforms.
+  const fullText = `Looking to hire a professional web developer? I'm Nisarg Shah, a Full Stack Developer specializing in custom website development, mobile app creation, and modern web solutions. With expertise in React.js, Node.js, MongoDB, and the MERN stack, I help businesses and entrepreneurs build high-performance, scalable applications that drive growth and deliver exceptional user experiences.
 
-My approach focuses on clean code architecture, responsive design principles, and implementing industry best practices to build robust digital solutions. I excel at transforming complex business requirements into intuitive, user-friendly interfaces while ensuring optimal performance and accessibility across all devices.
+## Why Choose Me for Your Web Development Project?
 
-As a dedicated problem-solver and continuous learner, I stay current with emerging technologies and development trends. From building dynamic web applications to creating cross-platform mobile apps, I'm committed to delivering projects that not only meet technical specifications but also drive business growth and user engagement.
+✅ **Full-Stack Expertise**: Complete solutions from frontend design to backend development
+✅ **Modern Technologies**: React.js, Node.js, MongoDB, and cutting-edge frameworks
+✅ **Mobile-First Approach**: Responsive websites that work perfectly on all devices
+✅ **Fast Delivery**: 3x faster project completion without compromising quality
+✅ **Ongoing Support**: 24/7 availability for maintenance and updates
+✅ **Proven Results**: 100% client satisfaction with delivered projects
 
-Ready to collaborate and bring your vision to life with cutting-edge web and mobile solutions.`;
+## Services I Offer:
+• Custom Website Development
+• E-commerce Solutions
+• Mobile App Development (React Native)
+• API Development & Integration
+• Website Maintenance & Support
+• Performance Optimization
+
+Ready to transform your ideas into powerful digital solutions? Let's discuss your project requirements and bring your vision to life.`;
 
   return (
-    <section id='About'>
+    <section id='about'>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}> Introduction </p>
-        <h2 className={styles.sectionHeadText}>Overview</h2>
+        <p className={styles.sectionSubText}>About Your Web Developer</p>
+        <h2 className={styles.sectionHeadText}>Professional Web Development Services</h2>
       </motion.div>
       <motion.div 
         variants={fadeIn("", "", 0.1, 1)}

@@ -1,0 +1,29 @@
+{
+  "name": "NashTech - Professional Web Development Services",
+  "short_name": "NashTech",
+  "description": "Professional web development services by Nisarg Shah. Custom websites, mobile apps, and full-stack solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#100D23",
+  "theme_color": "#915eff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "developer"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "id": "nashtech-portfolio"
+}

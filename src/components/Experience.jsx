@@ -25,8 +25,9 @@ const ExperienceCard = ({experience, isActive}) => (
     icon={
       <div className='flex justify-center items-center w-full h-full rounded-full overflow-hidden' style={{ zIndex: '100' }}>
         <img src={experience.icon}
-        alt={experience.company_name}
+        alt={`${experience.company_name} company logo - ${experience.title} position`}
         className='w-full h-full object-cover rounded-full'
+        loading="lazy"
         />
       </div>
     }

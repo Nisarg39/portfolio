@@ -71,8 +71,9 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link, d
         >
           <img 
             src={image} 
-            alt={name} 
+            alt={`${name} - Custom web development project showcasing modern web technologies and responsive design`} 
             className="w-full h-full object-contain bg-tertiary/80 rounded-3xl transition-all duration-400 group-hover:shadow-xl" 
+            loading="lazy"
           />
         </div>
 
@@ -111,7 +112,7 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link, d
                 }}
                 className="github-btn bg-gradient-to-r from-gray-800 to-gray-900 w-8 h-8 rounded-full flex justify-center items-center cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700 hover:border-white/50 hover:scale-110"
               >
-                <img src={github} alt="github" className="w-4 h-4 object-contain" />
+                <img src={github} alt="View source code on GitHub - Open source project repository" className="w-4 h-4 object-contain" />
               </div>
             </div>
           </div>
@@ -183,8 +184,8 @@ const Works = () => {
   return (
     <section id="work">
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>what i have done so far</p>
-        <h2 className={styles.sectionHeadText}>Projects</h2>
+        <p className={styles.sectionSubText}>Portfolio Showcase</p>
+        <h2 className={styles.sectionHeadText}>Web Development Projects</h2>
       </motion.div>
 
       <div className="w-full flex">
@@ -192,7 +193,7 @@ const Works = () => {
           variants={fadeIn("","",0.1,1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          Following project shows some of my work that i have delivered to my clients.
+          Explore my portfolio of custom web development projects, mobile applications, and full-stack solutions. Each project demonstrates my expertise in modern technologies and ability to deliver high-quality, scalable applications for diverse business needs.
         </motion.p>
       </div>
 

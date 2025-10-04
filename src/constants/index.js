@@ -37,6 +37,10 @@ import {
       title: "About",
     },
     {
+      id: "services",
+      title: "Services",
+    },
+    {
       id: "work",
       title: "Work",
     },
@@ -192,9 +196,9 @@ import {
   
   const projects = [
     {
-      name: "SmartBuy",
+      name: "SmartBuy - E-commerce Price Tracker",
       description:
-        "Keep a Track of your favourite Amazon Product and get notified when the product price falls to to its new low price so that you can but the product at the price which you want. We fetch products information daily so that you dont need to take care about the price fall",
+        "A custom web application for price tracking and e-commerce optimization. Built with Next.js and MongoDB, this project demonstrates advanced web development skills including API integration, data scraping with Puppeteer, and real-time price monitoring. Features include automated price alerts, product comparison, and user dashboard management. Perfect example of full-stack development for e-commerce solutions.",
       tags: [
         {
           name: "nextjs",
@@ -214,9 +218,9 @@ import {
       deployed_link: "https://bestbuy-psi.vercel.app/"
     },
     {
-      name: "My Client Portal",
+      name: "Client Management Portal",
       description:
-        "A web application that helps the client to manage their Sessions done by Me. Also, it helps me to manage my clients and their sessions. You can check the recruiter's view for dashboard demo and contact me if you want to manage your sessions from my portal",
+        "A professional client management system built with Next.js and modern UI components. This custom web application showcases advanced React development skills including session management, dashboard analytics, and user authentication. Features include real-time session tracking, client communication tools, and comprehensive project management. Demonstrates expertise in building scalable business applications and custom CRM solutions.",
       tags: [
         {
           name: "nextjs",
@@ -236,9 +240,9 @@ import {
       deployed_link: "https://nisarg-client.vercel.app/"
     },
     {
-      name: "Vichar Group",
+      name: "Vichar Group - Educational Platform",
       description:
-        "Vichar Group is a well known Academic Institute for Competitive Exams in India. I am working with them as a Full Stack Developer and helping them to build their WebApp and Mobile App for Students and Staff. The web app is built using NextJS, MongoDB, ExpressJS and Tailwind CSS",
+        "A comprehensive educational platform for competitive exam preparation, featuring both web and mobile applications. This full-stack project demonstrates expertise in building scalable educational solutions with Next.js, MongoDB, and Express.js. Includes student management systems, exam portals, real-time analytics, and mobile app development with React Native. Showcases ability to handle complex business requirements and deliver enterprise-level applications with AWS integration.",
       tags: [
         {
           name: "nextjs",

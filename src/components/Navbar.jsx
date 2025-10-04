@@ -22,7 +22,7 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
+          <img src={logo} alt="NashTech - Professional Web Development Services Logo" className="w-9 h-9 object-contain" loading="eager" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
             Nisarg Shah &nbsp;
             <span className="sm:block hidden">| MERN STACK DEVELOPER</span>
@@ -37,7 +37,20 @@ const Navbar = () => {
                 hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}
             >
-              <a href={`#${link.id}`}>{link.title}</a>
+              <a 
+                href={`#${link.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById(link.id);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                    // Update URL without page reload
+                    window.history.pushState(null, '', `#${link.id}`);
+                  }
+                }}
+              >
+                {link.title}
+              </a>
             </li>
           ))}
         </ul>
@@ -68,7 +81,20 @@ const Navbar = () => {
                     setActive(link.title);
                   }}
                 >
-                  <a href={`#${link.id}`}>{link.title}</a>
+                  <a 
+                href={`#${link.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById(link.id);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                    // Update URL without page reload
+                    window.history.pushState(null, '', `#${link.id}`);
+                  }
+                }}
+              >
+                {link.title}
+              </a>
                 </li>
               ))}
             </ul>

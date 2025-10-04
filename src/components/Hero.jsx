@@ -19,12 +19,12 @@ const Hero = () => {
   }));
 
   const techStack = [
-    { name: 'React', icon: Code, iconColor: 'text-blue-400' },
-    { name: 'Node.js', icon: Server, iconColor: 'text-green-400' },
-    { name: 'MongoDB', icon: Database, iconColor: 'text-emerald-400' },
-    { name: 'Express', icon: Layers, iconColor: 'text-yellow-400' },
-    { name: 'Mobile App Development', icon: Smartphone, iconColor: 'text-purple-400' },
-    { name: 'System Design', icon: Network, iconColor: 'text-orange-400' }
+    { name: 'Custom Websites', icon: Code, iconColor: 'text-blue-400' },
+    { name: 'React Development', icon: Server, iconColor: 'text-green-400' },
+    { name: 'Mobile Apps', icon: Smartphone, iconColor: 'text-purple-400' },
+    { name: 'API Development', icon: Network, iconColor: 'text-orange-400' },
+    { name: 'E-commerce Solutions', icon: Layers, iconColor: 'text-yellow-400' },
+    { name: 'Full Stack Services', icon: Database, iconColor: 'text-emerald-400' }
   ];
 
   return (
@@ -77,12 +77,12 @@ const Hero = () => {
 
         {/* Main content */}
         <div className='w-full lg:max-w-md xl:max-w-lg relative'>
-          <h1 className={`${styles.heroHeadText} text-white whitespace-nowrap`}>
+          <h1 className={`${styles.heroHeadText} text-white whitespace-nowrap overflow-hidden lg:text-6xl xl:text-7xl`}>
             Hi, I'm <span className='text-[#915eff]'>Nisarg</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             I develop Web Apps,
-            <br className='sm:block hidden' />From FrontEnd to BackEnd 
+            <br className='sm:block hidden' />From FrontEnd to BackEnd
           </p>
 
           {/* Tech Stack Pills - Responsive */}
@@ -151,6 +151,7 @@ const Hero = () => {
               <div className='text-xs lg:text-sm text-secondary'>Client Success</div>
             </div>
           </motion.div>
+
         </div>      
       </motion.div>
       {/* Computer Illustration with Enhanced Parallax */}
