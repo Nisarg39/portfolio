@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nisarg39.github.io/portfolio/</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.nashtech.dev/</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://nisarg39.github.io/portfolio/#about</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://www.nashtech.dev/#about</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nisarg39.github.io/portfolio/#work</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://www.nashtech.dev/#work</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://nisarg39.github.io/portfolio/#contact</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://www.nashtech.dev/#contact</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

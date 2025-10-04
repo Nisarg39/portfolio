@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/
+Disallow: /src/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.map$
+
+# Sitemap location
+Sitemap: https://www.nashtech.dev/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
