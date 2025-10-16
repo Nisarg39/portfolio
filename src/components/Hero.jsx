@@ -314,7 +314,7 @@ const Hero = () => {
           bottom: 0,
           left: 0,
           right: 0,
-          height: '150vh',
+          height: '70vh',
           background: `linear-gradient(
             to top,
             rgba(16, 13, 37, 1) 25%,
@@ -332,7 +332,8 @@ const Hero = () => {
             [0, 1],
             ['100%', '0%']
           ),
-          zIndex: 30
+          zIndex: 5,
+          pointerEvents: 'none'
         }}
       />
 
@@ -343,14 +344,15 @@ const Hero = () => {
           bottom: 0,
           left: 0,
           right: 0,
-          height: '25vh',
+          height: '12vh',
           backgroundColor: 'rgb(16, 13, 37)',
           opacity: useTransform(
             scrollYProgress,
             [0.3, 0.5],
             [0, 1]
           ),
-          zIndex: 29
+          zIndex: 4,
+          pointerEvents: 'none'
         }}
       />
 

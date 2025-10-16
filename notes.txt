@@ -28,3 +28,10 @@ Copy the the service code , template code and public key and configure it in bac
 do not force push this on github . it will show a blank page on deployment
 
 push the code to github and it will automatically deploy on github pages
+
+
+Still not implimented aws ses . future enhancement
+My amazon access key
+
+Access key - AKIA44Y6CPOWUDAHOS6A
+secret key - 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

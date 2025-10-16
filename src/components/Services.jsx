@@ -136,15 +136,15 @@ const Services = () => {
   ];
 
   return (
-    <section id="services">
-      <motion.div variants={textVariant()}>
+    <section>
+      <motion.div variants={textVariant()} initial="show" viewport={{ once: false, amount: 0.1 }}>
         <p className={styles.sectionSubText}>What I Offer</p>
         <h2 className={styles.sectionHeadText}>Web Development Services</h2>
       </motion.div>
 
       <div className="w-full flex">
         <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
+          variants={fadeIn("", "", 0.1, 1)} initial="show" viewport={{ once: false, amount: 0.1 }}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
           Professional web development services tailored to your business needs. From custom websites to mobile apps, I deliver high-quality solutions that drive growth and exceed expectations.
@@ -160,7 +160,7 @@ const Services = () => {
 
       {/* Benefits Section */}
       <div className="mt-20">
-        <motion.div variants={textVariant()}>
+        <motion.div variants={textVariant()} initial="show">
           <h3 className="text-white text-2xl font-bold text-center mb-12">
             Why Choose My Web Development Services?
           </h3>
@@ -170,7 +170,7 @@ const Services = () => {
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
-              variants={fadeIn("up", "spring", index * 0.2, 0.75)}
+              variants={fadeIn("up", "spring", index * 0.2, 0.75)} viewport={{ once: false, amount: 0.1 }}
               className="text-center"
             >
               <div className="p-4 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-2xl mb-4 mx-auto w-fit">

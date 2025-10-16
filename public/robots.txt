@@ -1,13 +1,16 @@
 User-agent: *
 Allow: /
+
+# Keep private/dev paths blocked if exposed
 Disallow: /node_modules/
 Disallow: /.git/
-Disallow: /dist/
-Disallow: /src/
-Disallow: /*.json$
-Disallow: /*.js$
-Disallow: /*.css$
-Disallow: /*.map$
+
+# Do NOT block JS/CSS or build assets
+# Disallow: /*.js$
+# Disallow: /*.css$
+# Disallow: /*.map$
+# Disallow: /dist/
+# Disallow: /src/
 
 # Sitemap location
 Sitemap: https://www.nashtech.dev/sitemap.xml
