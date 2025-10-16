@@ -1,17 +1,15 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import { useState, useRef } from "react";
 
-const ProjectCard = ({index, name, description, tags, image, source_code_link, deployed_link}) => {
+const ProjectCard = ({index, name, description, tags, image, deployed_link}) => {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef(null);
 
-  const handleCardClick = (e) => {
-    if (e.target.closest('.github-btn') || e.target.closest('.deploy-btn')) return;
+  const handleCardClick = () => {
     window.open(deployed_link, "_blank");
   };
 
@@ -95,26 +93,6 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link, d
             >
               {name}
             </h3>
-            
-            {/* Action buttons with 3D effect */}
-            <div 
-              className="flex gap-2"
-              style={{
-                transform: isHovered ? 'translateZ(30px)' : 'translateZ(0px)',
-                transition: 'transform 0.3s ease-out'
-              }}
-            >
-              <div
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  window.open(source_code_link, "_blank");
-                }}
-                className="github-btn bg-gradient-to-r from-gray-800 to-gray-900 w-8 h-8 rounded-full flex justify-center items-center cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700 hover:border-white/50 hover:scale-110"
-              >
-                <img src={github} alt="View source code on GitHub - Open source project repository" className="w-4 h-4 object-contain" />
-              </div>
-            </div>
           </div>
           
           <p 

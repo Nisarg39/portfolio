@@ -24,11 +24,12 @@ import {
     employeereviewsystem,
     imdbClone,
     threejs,
-    nisarg_portal,
     smartbuy,
     takalkar,
     vichar,
-    vicharwebsite
+    vicharwebsite,
+    dominate_performance,
+    voyyage_invest,
   } from "../assets";
   
   export const navLinks = [
@@ -196,7 +197,7 @@ import {
   
   const projects = [
     {
-      name: "SmartBuy - E-commerce Price Tracker",
+      name: "SmartBuy",
       description:
         "A custom web application for price tracking and e-commerce optimization. Built with Next.js and MongoDB, this project demonstrates advanced web development skills including API integration, data scraping with Puppeteer, and real-time price monitoring. Features include automated price alerts, product comparison, and user dashboard management. Perfect example of full-stack development for e-commerce solutions.",
       tags: [
@@ -218,29 +219,7 @@ import {
       deployed_link: "https://bestbuy-psi.vercel.app/"
     },
     {
-      name: "Client Management Portal",
-      description:
-        "A professional client management system built with Next.js and modern UI components. This custom web application showcases advanced React development skills including session management, dashboard analytics, and user authentication. Features include real-time session tracking, client communication tools, and comprehensive project management. Demonstrates expertise in building scalable business applications and custom CRM solutions.",
-      tags: [
-        {
-          name: "nextjs",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "shadcn",
-          color: "green-text-gradient",
-        },
-        {
-          name: "tailwind",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: nisarg_portal,
-      source_code_link: "https://github.com/Nisarg39/nisarg_client",
-      deployed_link: "https://nisarg-client.vercel.app/"
-    },
-    {
-      name: "Vichar Group - Educational Platform",
+      name: "Vichar Group ",
       description:
         "A comprehensive educational platform for competitive exam preparation, featuring both web and mobile applications. This full-stack project demonstrates expertise in building scalable educational solutions with Next.js, MongoDB, and Express.js. Includes student management systems, exam portals, real-time analytics, and mobile app development with React Native. Showcases ability to handle complex business requirements and deliver enterprise-level applications with AWS integration.",
       tags: [
@@ -261,6 +240,50 @@ import {
       source_code_link: "https://github.com/Nisarg39/vicharGroup",
       deployed_link: "https://www.vichargroup.com"
     },
+    {
+      name: "Dominate Performance",
+      description:
+        "A Fitness Website specially focused on Athelete for their training and nutrition. Various Fitness Services are provided to the users based on fusion of Technology and Sports Science. Built with Next.js, Three.js, Framer Motion, Gsap, Tailwind CSS. Built with advance animations and responsive design. Packed with high performance and fast response time. Blended with gamification and glassmorphism design.",
+      tags: [
+        {
+          name: "nextjs",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "threejs",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "framer motion",
+          color: "green-text-gradient",
+        },
+      ],
+      image: dominate_performance,
+      source_code_link: "https://github.com/Nisarg39/dominate_sports",
+      deployed_link: "https://www.dominateperformance.com"
+    },
+    {
+      name: "Voyyage Invest",
+      description:
+        "Voyyage Invest is an Advisory platform for individuals and businesses. It provides the best example of a complex financial advisory platform. Built with Next.js, Tailwind CSS, and MongoDB, this project demonstrates advanced web development skills including API integration, data scraping with Puppeteer, and real-time price monitoring. Features include automated price alerts, product comparison, and user dashboard management. Perfect example of full-stack development for investment solutions.",
+      tags: [
+        {
+          name: "nextjs",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "materialUI",
+          color: "green-text-gradient",
+        },
+        {
+          name: "aws",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: voyyage_invest,
+      source_code_link: "https://github.com/Nisarg39/voyyage_invest",
+      deployed_link: "https://www.voyyageinvest.com"
+    }
   ];
   
   export { services, technologies, experiences, testimonials, projects };

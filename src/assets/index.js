@@ -29,12 +29,13 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import employeereviewsystem from "./employeereviewsystem.png";
 import imdbClone from "./imdbClone.png";
-import nisarg_portal from "./nisarg_client_portal.png";
 import cravita_logo from './company/cravita_logo.jpeg'
 import smartbuy from './smartbuy.png'
 import takalkar from './company/takalkar_logo.ico'
 import vichar from "./company/vichar_logo.png"
 import vicharwebsite from "./vicharwebsite.png";
+import dominate_performance from "./dominateperformance.png";
+import voyyage_invest from "./voyyageinvest.png";
 export {
   logo,
   backend,
@@ -64,10 +65,11 @@ export {
   carrent,
   employeereviewsystem,
   imdbClone,
-  nisarg_portal,
   cravita_logo,
   smartbuy,
   takalkar,
   vichar,
   vicharwebsite,
+  dominate_performance,
+  voyyage_invest,
 };

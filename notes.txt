@@ -29,6 +29,3 @@ do not force push this on github . it will show a blank page on deployment
 
 push the code to github and it will automatically deploy on github pages
 
-
-
-there is no aws 
