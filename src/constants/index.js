@@ -24,9 +24,9 @@ import {
     employeereviewsystem,
     imdbClone,
     threejs,
-    smartbuy,
+    onereport,
     takalkar,
-    vichar,
+    freelance_logo,
     vicharwebsite,
     dominate_performance,
     voyyage_invest,
@@ -127,31 +127,19 @@ import {
   
   const experiences = [
     {
-      title: "Full Stack Developer",
-      company_name: "Vichar Group",
-      icon: vichar,
+      title: "Freelance Developer",
+      company_name: "Full Stack Developer",
+      icon: freelance_logo,
       iconBg: "#E6DEDD",
-      date: "October 2024 - Till Date",
+      date: "February 2024 - Till Date",
       points: [
-        "Created Full Stack Web App with NextJS, MongoDB, ExpressJS and Tailwind CSS",
+        "Created Full Stack Web App with NextJS, MongoDB, ExpressJS, Tailwind CSS",
         "Designing (FrontEnd, BackEnd), SEO optimization and providing utilities to Staff and Students",
-        "Developed Vichar App with React Native Expo for Android and IOS platforms",
-        "Created an exam portal that simulates competitive exams with real-time analytics using AWS and React Vite",
+        "Developed Cross Platform Mobile Apps with React Native Expo for Android and IOS platforms",
+        "Handled critical and complex implimentations of advanced features based on custom alogrithms",
       ],
     },
-    {
-      title: "Freelance Web Developer",
-      company_name: "Takalkar Academy",
-      icon: takalkar,
-      iconBg: "#E6DEDD",
-      date: "Feb 2024 - Sept 2024",
-      points: [
-        "Co-ordinating with Marketing Team and work accordingly with their vision",
-        "Designing (FrontEnd, BackEnd), SEO optimization and providing utilities to Staff and Students",
-        "Handling deployment on Vercel , Mantaining Database from Mongodb Atlas, Currently working on LMS",
-        "Impact - Website is the most visited Digital Platform, Website appears First before any social account",
-      ],
-    },
+
     {
       title: "Intern",
       company_name: "Cravita Technologies Pvt Ltd",
@@ -197,26 +185,26 @@ import {
   
   const projects = [
     {
-      name: "SmartBuy",
+      name: "OneReport",
       description:
-        "A custom web application for price tracking and e-commerce optimization. Built with Next.js and MongoDB, this project demonstrates advanced web development skills including API integration, data scraping with Puppeteer, and real-time price monitoring. Features include automated price alerts, product comparison, and user dashboard management. Perfect example of full-stack development for e-commerce solutions.",
+        "An AI-powered client reporting software designed for freelance marketers and small agencies. Built with modern web technologies, OneReport enables users to generate professional, branded client reports in just 5 minutes. Features include automated data integration, AI-generated insights, customizable templates, and scheduled report delivery. This project demonstrates expertise in building SaaS platforms with focus on user experience, automation, and scalability. Offers 50-80% cost savings compared to traditional reporting platforms.",
       tags: [
         {
           name: "nextjs",
           color: "blue-text-gradient",
         },
         {
-          name: "mongodb",
+          name: "ai-powered",
           color: "green-text-gradient",
         },
         {
-          name: "puppetier",
+          name: "saas",
           color: "pink-text-gradient",
         },
       ],
-      image: smartbuy,
-      source_code_link: "https://github.com/Nisarg39/habit-tracker-mern",
-      deployed_link: "https://bestbuy-psi.vercel.app/"
+      image: onereport,
+      source_code_link: "https://github.com/Nisarg39/onereport",
+      deployed_link: "https://www.onereport.in"
     },
     {
       name: "Vichar Group ",

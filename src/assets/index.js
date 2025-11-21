@@ -30,9 +30,10 @@ import carrent from "./carrent.png";
 import employeereviewsystem from "./employeereviewsystem.png";
 import imdbClone from "./imdbClone.png";
 import cravita_logo from './company/cravita_logo.jpeg'
-import smartbuy from './smartbuy.png'
+import onereport from './onereport.png'
 import takalkar from './company/takalkar_logo.ico'
 import vichar from "./company/vichar_logo.png"
+import freelance_logo from './company/freelance_logo.png'
 import vicharwebsite from "./vicharwebsite.png";
 import dominate_performance from "./dominateperformance.png";
 import voyyage_invest from "./voyyageinvest.png";
@@ -66,9 +67,10 @@ export {
   employeereviewsystem,
   imdbClone,
   cravita_logo,
-  smartbuy,
+  onereport,
   takalkar,
   vichar,
+  freelance_logo,
   vicharwebsite,
   dominate_performance,
   voyyage_invest,
