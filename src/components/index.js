@@ -9,6 +9,7 @@ import Works from './Works';
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 import FAQ from './FAQ';
+import GoogleAnalytics from './GoogleAnalytics';
 
 export {
   Hero,
@@ -24,5 +25,6 @@ export {
   EarthCanvas, 
   BallCanvas, 
   ComputersCanvas, 
-  StarsCanvas
+  StarsCanvas,
+  GoogleAnalytics
 }
