@@ -226,3 +226,60 @@
 ::-webkit-scrollbar {
   width: 6px;
 }
+
+/* Print Styles for Legal Pages */
+@media print {
+  /* Remove backgrounds for better printing */
+  body,
+  .bg-primary,
+  .bg-tertiary {
+    background: white !important;
+  }
+
+  /* Make text black for printing */
+  * {
+    color: black !important;
+  }
+
+  /* Hide navigation and footer when printing */
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Adjust page layout for printing */
+  .legal-content {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* Prevent page breaks after headings */
+  h1,
+  h2,
+  h3,
+  h4 {
+    page-break-after: avoid;
+    color: black !important;
+  }
+
+  /* Ensure proper spacing */
+  p,
+  ul,
+  ol {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Show URLs for links */
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666 !important;
+  }
+
+  /* Don't show URL for hash links */
+  a[href^="#"]::after {
+    content: "";
+  }
+}

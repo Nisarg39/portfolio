@@ -1,53 +1,21 @@
-import { BrowserRouter } from 'react-router-dom';
-import { About, Contact, Experience, Feedbacks, Hero,
-Navbar,Tech, Works, StarsCanvas, Services, FAQ, GoogleAnalytics } from './components'
-import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { GoogleAnalytics } from './components';
+import SharedLayout from './layouts/SharedLayout';
+import HomePage from './pages/HomePage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsConditionsPage from './pages/TermsConditionsPage';
 
 const App = () => {
-  
-  // Handle hash navigation on page load
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.substring(1);
-      if (hash) {
-        const element = document.getElementById(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    };
-
-    // Handle initial load
-    handleHashChange();
-
-    // Handle browser back/forward
-    window.addEventListener('hashchange', handleHashChange);
-    
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-    };
-  }, []);
-
   return (
     <BrowserRouter>
       <GoogleAnalytics />
-      <div className='relative z-0 bg-primary'>
-        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
-          <Navbar />
-          <Hero />
-        </div>
-        <About />
-        <Services />
-        <Experience />
-        {/* <Tech /> */}
-        <Works />
-        {/* <Feedbacks /> */}
-        <FAQ />
-        <div className='relative z-0'>
-          <Contact />
-          <StarsCanvas />
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="terms-conditions" element={<TermsConditionsPage />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   )
 }

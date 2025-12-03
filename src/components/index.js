@@ -10,6 +10,8 @@ import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 import FAQ from './FAQ';
 import GoogleAnalytics from './GoogleAnalytics';
+import Footer from './Footer';
+import LegalPageLayout from './LegalPageLayout';
 
 export {
   Hero,
@@ -22,9 +24,11 @@ export {
   Feedbacks,
   Contact,
   FAQ,
-  EarthCanvas, 
-  BallCanvas, 
-  ComputersCanvas, 
+  EarthCanvas,
+  BallCanvas,
+  ComputersCanvas,
   StarsCanvas,
-  GoogleAnalytics
+  GoogleAnalytics,
+  Footer,
+  LegalPageLayout
 }
