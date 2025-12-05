@@ -18,12 +18,12 @@ export const socialLinks = [
   },
   {
     name: 'LinkedIn',
-    url: '#', // Replace with actual LinkedIn URL
+    url: 'https://www.linkedin.com/in/nisarg-shah-413b731ba/?originalSubdomain=in',
     ariaLabel: 'Visit Nisarg Shah on LinkedIn'
   },
   {
     name: 'GitHub',
-    url: '#', // Replace with actual GitHub URL
+    url: 'https://github.com/Nisarg39',
     ariaLabel: 'Visit Nisarg Shah on GitHub'
   }
 ];
