@@ -22,7 +22,6 @@ import {
     shopify,
     carrent,
     employeereviewsystem,
-    imdbClone,
     threejs,
     onereport,
     takalkar,

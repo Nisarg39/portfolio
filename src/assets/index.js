@@ -28,7 +28,6 @@ import tesla from "./company/tesla.png";
 
 import carrent from "./carrent.png";
 import employeereviewsystem from "./employeereviewsystem.png";
-import imdbClone from "./imdbClone.png";
 import cravita_logo from './company/cravita_logo.jpeg'
 import onereport from './onereport.png'
 import takalkar from './company/takalkar_logo.ico'
@@ -65,7 +64,6 @@ export {
   tesla,
   carrent,
   employeereviewsystem,
-  imdbClone,
   cravita_logo,
   onereport,
   takalkar,
