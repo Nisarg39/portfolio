@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
 import {
@@ -23,6 +24,7 @@ const ServiceCard = ({ service, index, className }) => {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef(null);
   const glareRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
@@ -152,7 +154,15 @@ const ServiceCard = ({ service, index, className }) => {
             <motion.button
               whileHover={{ x: 5 }}
               className="flex items-center gap-1.5 text-purple-400 text-xs font-bold group/btn whitespace-nowrap"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (service.path) {
+                  navigate(service.path);
+                  window.scrollTo(0, 0);
+                } else {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Details <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
             </motion.button>
@@ -181,7 +191,8 @@ const Services = () => {
       description: "Custom LLM deployments and neural automation engines. We build intelligent systems that autonomously solve complex business workflows and slash operational costs.",
       technologies: ["OpenAI", "LangChain", "Vector DBs", "Python"],
       deliveryTime: "4-6 weeks",
-      className: "md:col-span-3 md:row-span-1"
+      className: "md:col-span-3 md:row-span-1",
+      path: "/services/ai-solutions"
     },
     {
       icon: Layers,
@@ -189,7 +200,8 @@ const Services = () => {
       description: "High-performance, multi-tenant digital infrastructure. Scalable platforms optimized for security, sub-second latency, and global expansion.",
       technologies: ["Next.js-14", "AWS-Infra", "Microservices", "PostgreSQL"],
       deliveryTime: "6-8 weeks",
-      className: "md:col-span-3 md:row-span-1"
+      className: "md:col-span-3 md:row-span-1",
+      path: "/services/custom-software"
     },
     {
       icon: Smartphone,
@@ -221,7 +233,8 @@ const Services = () => {
       description: "End-to-end technology consulting for business growth. We map business goals to technical architecture to drive measurable ROI and market dominance.",
       technologies: ["Tech-Audit", "Architecture-Lead", "Strategic-Planning"],
       deliveryTime: "Consultation",
-      className: "md:col-span-3 md:row-span-1"
+      className: "md:col-span-3 md:row-span-1",
+      path: "/services/mvp-development"
     }
   ];
 
