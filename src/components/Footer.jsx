@@ -34,11 +34,11 @@ const Footer = () => {
                 className="w-8 h-8 object-contain"
               />
               <p className="text-white text-lg font-bold">
-                Nisarg Shah
+                NashTech Solutions
               </p>
             </Link>
             <p className='text-secondary text-sm leading-relaxed max-w-xs'>
-              MERN Stack Developer specializing in building exceptional web applications with modern technologies.
+              Specialized Digital Agency engineering scalable digital infrastructure, custom AI solutions, and high-performance SaaS platforms.
             </p>
           </div>
 
@@ -118,7 +118,7 @@ const Footer = () => {
         {/* Bottom Section: Copyright */}
         <div className='mt-12 pt-8 border-t border-secondary/20 text-center'>
           <p className='text-xs text-secondary/60'>
-            &copy; {new Date().getFullYear()} Nisarg Shah. All rights reserved.
+            &copy; {new Date().getFullYear()} NashTech Solutions by Nisarg Shah. All rights reserved.
           </p>
         </div>
       </div>

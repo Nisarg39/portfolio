@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { About, Contact, Experience, Hero, Works, StarsCanvas, Services, FAQ } from '../components';
+import { About, Contact, Hero, Works, StarsCanvas, Services, FAQ, SeoHead } from '../components';
 
 const HomePage = () => {
 
@@ -28,12 +28,12 @@ const HomePage = () => {
 
   return (
     <div className='relative z-0 bg-primary'>
+      <SeoHead />
       <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
         <Hero />
       </div>
       <About />
       <Services />
-      <Experience />
       <Works />
       <FAQ />
       <div className='relative z-0'>

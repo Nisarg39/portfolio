@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react'
-import {motion, useScroll, useTransform} from 'framer-motion';
-import {styles } from '../styles';
-import {fadeIn, textVariant} from '../utils/motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { styles } from '../styles';
+import { fadeIn, textVariant } from '../utils/motion';
 import { SectionWrapper } from '../hoc';
-import { 
-  LayoutGrid as ReactIcon, 
-  Database, 
-  Server, 
-  Code2, 
-  FileJson, 
+import {
+  LayoutGrid as ReactIcon,
+  Database,
+  Server,
+  Code2,
+  FileJson,
   Blocks,
   Smartphone,
   Layout,
@@ -44,7 +44,7 @@ const TechMarquee = () => {
   ];
 
   const duplicatedTechnologies = [...technologies, ...technologies, ...technologies];
-  
+
   const x = useTransform(
     scrollYProgress,
     [0, 1],
@@ -52,7 +52,7 @@ const TechMarquee = () => {
   );
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="w-full overflow-hidden relative min-w-full mx-auto py-12 sm:py-8"
       style={{
@@ -62,7 +62,7 @@ const TechMarquee = () => {
       {/* Left side reveal effect */}
       <div className="absolute left-0 top-0 h-full z-10 flex pointer-events-none">
         {/* Solid edge */}
-        <div 
+        <div
           className="w-[40px] sm:w-[80px] h-full"
           style={{
             background: '#050816'
@@ -70,7 +70,7 @@ const TechMarquee = () => {
         />
         {/* Fade out effect */}
         <div className="relative w-[100px] sm:w-[180px] h-full">
-          <div 
+          <div
             className="absolute inset-0"
             style={{
               background: `linear-gradient(to right, 
@@ -89,7 +89,7 @@ const TechMarquee = () => {
       <div className="absolute right-0 top-0 h-full z-10 flex pointer-events-none">
         {/* Fade out effect */}
         <div className="relative w-[100px] sm:w-[180px] h-full">
-          <div 
+          <div
             className="absolute inset-0"
             style={{
               background: `linear-gradient(to left, 
@@ -103,7 +103,7 @@ const TechMarquee = () => {
           />
         </div>
         {/* Solid edge */}
-        <div 
+        <div
           className="w-[40px] sm:w-[80px] h-full"
           style={{
             background: '#050816'
@@ -135,7 +135,7 @@ const NeonButton = ({ children, onClick, isExpanded }) => {
   return (
     <motion.button
       onClick={onClick}
-      whileHover={{ 
+      whileHover={{
         scale: 1.05,
         animation: "none",
         boxShadow: "0 0 2px #915EFF, 0 0 4px #915EFF, 0 0 8px #915EFF",
@@ -196,43 +196,43 @@ const NeonButton = ({ children, onClick, isExpanded }) => {
 const About = () => {
   const [showMore, setShowMore] = useState(false);
 
-  const firstParagraph = "Looking to hire a professional web developer? I'm Nisarg Shah, a Full Stack Developer specializing in custom website development, mobile app creation, and modern web solutions. With expertise in React.js, Node.js, MongoDB, and the MERN stack, I help businesses and entrepreneurs build high-performance, scalable applications that drive growth and deliver exceptional user experiences.";
+  const firstParagraph = "Looking for a strategic technology partner? We are NashTech, a specialized digital agency providing enterprise-grade software development, custom AI integration, and scalable SaaS solutions. Our team transforms complex business problems into high-performance digital infrastructure that drives measurable growth and exceptional user experiences.";
 
-  const fullText = `Looking to hire a professional web developer? I'm Nisarg Shah, a Full Stack Developer specializing in custom website development, mobile app creation, and modern web solutions. With expertise in React.js, Node.js, MongoDB, and the MERN stack, I help businesses and entrepreneurs build high-performance, scalable applications that drive growth and deliver exceptional user experiences.
+  const fullText = `Looking for a strategic technology partner? We are NashTech, a specialized digital agency providing enterprise-grade software development, custom AI integration, and scalable SaaS solutions. Our team transforms complex business problems into high-performance digital infrastructure that drives measurable growth and exceptional user experiences.
 
-## Why Choose Me for Your Web Development Project?
+## Why Partner with NashTech for Your Digital Success?
 
-✅ **Full-Stack Expertise**: Complete solutions from frontend design to backend development
-✅ **Modern Technologies**: React.js, Node.js, MongoDB, and cutting-edge frameworks
-✅ **Mobile-First Approach**: Responsive websites that work perfectly on all devices
-✅ **Fast Delivery**: 3x faster project completion without compromising quality
-✅ **Ongoing Support**: 24/7 availability for maintenance and updates
-✅ **Proven Results**: 100% client satisfaction with delivered projects
+✅ **Enterprise-Grade Engineering**: We build robust, scalable digital infrastructure designed for growth.
+✅ **AI-First Approach**: Custom LLM integration and automation that slashes operational costs by up to 40%.
+✅ **Strategic SaaS Development**: End-to-end product engineering for startups and established enterprises.
+✅ **Rapid MVP Prototyping**: Validated solutions delivered 3x faster without compromising quality.
+✅ **24/7 Global Support**: Dedicated partnership with around-the-clock availability for mission-critical systems.
+✅ **Conversion Optimization**: High-performance architectures optimized for both speed and user retention.
 
-## Services I Offer:
-• Custom Website Development
-• E-commerce Solutions
-• Mobile App Development (React Native)
-• API Development & Integration
-• Website Maintenance & Support
-• Performance Optimization
+## Our Core Specialized Services:
+• Custom AI Integration & Automation
+• Scalable SaaS Platform Engineering
+• Rapid MVP Development for Startups
+• Enterprise Legacy System Modernization
+• High-Performance Cloud Architecture
+• Strategic Digital Transformation Consulting
 
-Ready to transform your ideas into powerful digital solutions? Let's discuss your project requirements and bring your vision to life.`;
+Ready to scale your digital presence with a partner that understands business outcomes? Let's engineer your future together.`;
 
   return (
     <section id='about'>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>About Your Web Developer</p>
-        <h2 className={styles.sectionHeadText}>Professional Web Development Services</h2>
+        <p className={styles.sectionSubText}>Strategic Technology Partner</p>
+        <h2 className={styles.sectionHeadText}>Engineering Scalable Digital Solutions</h2>
       </motion.div>
-      <motion.div 
+      <motion.div
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
         <p className='whitespace-pre-line'>
           {showMore ? fullText : firstParagraph}
         </p>
-        
+
         <NeonButton onClick={() => setShowMore(!showMore)} isExpanded={showMore}>
           {showMore ? (
             <>
@@ -245,7 +245,7 @@ Ready to transform your ideas into powerful digital solutions? Let's discuss you
           )}
         </NeonButton>
       </motion.div>
-      
+
       <div className='mt-20'>
         <TechMarquee />
       </div>

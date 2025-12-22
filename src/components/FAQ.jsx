@@ -27,7 +27,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => (
         )}
       </motion.div>
     </div>
-    
+
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -53,36 +53,36 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "How much do you charge for web development?",
-      answer: "My pricing varies based on project complexity, timeline, and specific requirements. Simple websites start from $500, while complex web applications range from $2,000-$10,000+. I offer competitive rates and provide detailed quotes after understanding your project needs. Contact me for a free consultation and personalized quote."
+      question: "How do custom AI Agents drive business ROI and automation?",
+      answer: "We specialize in autonomous AI agents and neural integration that go beyond simple chatbots. By deploying custom LLM automation engines and OpenAI-powered workflows, we help enterprises slash operational costs and autonomously solve complex business tasks."
     },
     {
-      question: "How long does it take to build a website?",
-      answer: "Project timelines depend on complexity and requirements. Simple landing pages: 1-2 weeks, Custom websites: 2-4 weeks, E-commerce sites: 4-8 weeks, Complex web applications: 6-12 weeks. I work efficiently and deliver projects 3x faster than industry average while maintaining high quality standards."
+      question: "What is your process for MVP development for Fintech and SaaS startups?",
+      answer: "Our product engineering approach is designed for speed and scalability. Strategic discovery for simple architectures starts from $10, while complex enterprise-grade SaaS platforms are engineered for sub-second latency and global expansion within 6-12 weeks."
     },
     {
-      question: "What technologies do you use for web development?",
-      answer: "I specialize in modern web technologies including React.js, Next.js, Node.js, MongoDB, Express.js, and Tailwind CSS. For mobile apps, I use React Native and Expo. I also work with TypeScript, AWS, Firebase, and various APIs. I choose the best technology stack based on your project requirements and scalability needs."
+      question: "Do you specialize in legacy system modernization and infrastructure overhauls?",
+      answer: "Yes. We transform outdated, slow legacy code into high-performance architectures. Our modernization service focuses on performance optimization, Core Web Vitals fixes, and scalable cloud migration to ensure your infrastructure meets modern enterprise standards."
     },
     {
-      question: "Do you provide ongoing maintenance and support?",
-      answer: "Yes, I offer comprehensive maintenance packages including regular updates, security patches, performance optimization, and feature enhancements. I'm available 24/7 for urgent issues and provide ongoing support to ensure your website runs smoothly. Maintenance packages start from $100/month."
+      question: "How do you ensure scalable React frontend architecture for high-traffic apps?",
+      answer: "We utilize multi-tenant, enterprise-ready stacks including Next.js 14, TypeScript, and AWS. Our architecture is built to handle millions of concurrent requests with 100% data integrity, optimized for both user experience and technical SEO."
     },
     {
-      question: "Can you help with existing websites?",
-      answer: "Absolutely! I provide website redesign, performance optimization, security updates, and feature additions for existing websites. I can work with any technology stack and help modernize older websites with current best practices and technologies."
+      question: "Do you offer digital transformation consulting for growing businesses?",
+      answer: "Beyond coding, we provide end-to-end technology auditing and strategic planning. We map your business goals to a technical roadmap that ensures long-term market dominance and measurable ROI through digital transformation."
     },
     {
-      question: "Do you work with clients outside your local area?",
-      answer: "Yes, I work with clients worldwide. I have experience with remote collaboration and use modern communication tools to ensure smooth project management. I'm available across different time zones and provide regular updates throughout the development process."
+      question: "How do you manage cross-platform mobile development with AI integration?",
+      answer: "We build AI-driven mobile interfaces using React Native that offer native performance with on-device machine learning models. This provides your users with predictive UIs and seamless cloud-sync capabilities across iOS and Android."
     },
     {
-      question: "What's included in your web development service?",
-      answer: "My services include: Custom design and development, Responsive mobile-friendly websites, SEO optimization, Performance optimization, Security implementation, Testing and quality assurance, Deployment and hosting setup, Documentation and training, 30-day free support after launch."
+      question: "What is included in your software development partnership?",
+      answer: "Our partnership covers the full product lifecycle: Custom solution design, security-first engineering, SEO and performance optimization, and 24/7 technical support. We act as your extended engineering team to ensure your digital ecosystem stays ahead of the curve."
     },
     {
-      question: "How do you ensure website security?",
-      answer: "I implement multiple security layers including HTTPS encryption, secure authentication, input validation, SQL injection prevention, XSS protection, and regular security updates. I follow OWASP security guidelines and use trusted hosting platforms with enterprise-level security features."
+      question: "How do you ensure enterprise-level security for custom applications?",
+      answer: "Security is baked into our 'Software Development Partner' DNA. We implement HTTPS encryption, secure authentication (Edge Auth), input validation, and regular security patches, following OWASP guidelines and utilizing trusted cloud providers."
     }
   ];
 

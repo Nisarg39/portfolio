@@ -4,7 +4,6 @@ import Navbar from './Navbar';
 import About from './About';
 import Services from './Services';
 import Tech from './Tech';
-import Experience from './Experience';
 import Works from './Works';
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
@@ -12,6 +11,8 @@ import FAQ from './FAQ';
 import GoogleAnalytics from './GoogleAnalytics';
 import Footer from './Footer';
 import LegalPageLayout from './LegalPageLayout';
+import SeoHead from './SeoHead';
+import ScrollToTop from './ScrollToTop';
 
 export {
   Hero,
@@ -19,7 +20,6 @@ export {
   About,
   Services,
   Tech,
-  Experience,
   Works,
   Feedbacks,
   Contact,
@@ -30,5 +30,7 @@ export {
   StarsCanvas,
   GoogleAnalytics,
   Footer,
-  LegalPageLayout
+  LegalPageLayout,
+  SeoHead,
+  ScrollToTop
 }

@@ -1,15 +1,24 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import {styles} from '../styles';
+import { styles } from '../styles';
 import { navLinks } from '../constants';
-import {logo, menu, close} from '../assets'
+import { logo, menu, close } from '../assets'
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
+
+  useEffect(() => {
+    // Set active link based on current path
+    const path = location.pathname.substring(1); // remove leading slash
+    if (path) {
+      setActive(path.charAt(0).toUpperCase() + path.slice(1));
+    } else {
+      setActive("");
+    }
+  }, [location]);
 
   return (
     <nav
@@ -26,56 +35,43 @@ const Navbar = () => {
         >
           <img src={logo} alt="NashTech - Professional Web Development Services Logo" className="w-9 h-9 object-contain" loading="eager" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
-            Nisarg Shah &nbsp;
-            <span className="sm:block hidden">| MERN STACK DEVELOPER</span>
+            NashTech &nbsp;
+            <span className="sm:block hidden">| Agency by Nisarg Shah</span>
           </p>
         </Link>
-        {isHomePage && (
-          <ul className="list-none hidden sm:flex flex-row gap-10">
-            {navLinks.map((link) => (
+
+        <ul className="list-none hidden sm:flex flex-row gap-10">
+          {navLinks.map((link) => (
             <li
               key={link.id}
               className={`
                 ${active === link.title ? "text-white" : "text-secondary"} 
-                hover:text-white text-[18px] font-medium cursor-pointer`}
+                hover:text-white text-[18px] font-medium cursor-pointer transition-colors duration-200`}
               onClick={() => setActive(link.title)}
             >
-              <a 
-                href={`#${link.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.getElementById(link.id);
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                    // Update URL without page reload
-                    window.history.pushState(null, '', `#${link.id}`);
-                  }
-                }}
-              >
+              <Link to={`/${link.id}`}>
                 {link.title}
-              </a>
+              </Link>
             </li>
           ))}
-          </ul>
-        )}
-        {isHomePage && (
-          <div className="sm:hidden flex flex-1 justify-end items-center">
-            <img
-              src={toggle ? close : menu}
-              alt="menu"
-              className="w-[28px] h-[28px] object-contain cursor-pointer"
-              onClick={() => setToggle(!toggle)}
-            />
+        </ul>
 
-            <div
-              className={`${
-                !toggle ? "hidden" : "flex"
+        <div className="sm:hidden flex flex-1 justify-end items-center">
+          <img
+            src={toggle ? close : menu}
+            alt="menu"
+            className="w-[28px] h-[28px] object-contain cursor-pointer"
+            onClick={() => setToggle(!toggle)}
+          />
+
+          <div
+            className={`${!toggle ? "hidden" : "flex"
               } p-6 black-gradient absolute top-20
-                  right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl `}
-            >
+                right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl `}
+          >
 
-              <ul className="list-none flex flex-row justify-end items-start flex-col gap-4">
-                {navLinks.map((link) => (
+            <ul className="list-none flex flex-row justify-end items-start flex-col gap-4">
+              {navLinks.map((link) => (
                 <li
                   key={link.id}
                   className={`
@@ -86,27 +82,15 @@ const Navbar = () => {
                     setActive(link.title);
                   }}
                 >
-                  <a 
-                href={`#${link.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.getElementById(link.id);
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                    // Update URL without page reload
-                    window.history.pushState(null, '', `#${link.id}`);
-                  }
-                }}
-              >
-                {link.title}
-              </a>
+                  <Link to={`/${link.id}`}>
+                    {link.title}
+                  </Link>
                 </li>
               ))}
-              </ul>
+            </ul>
 
-            </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
