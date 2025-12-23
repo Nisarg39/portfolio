@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { PerspectiveCamera, PresentationControls, useGLTF, useAnimations, Stage, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -80,7 +80,7 @@ const BaymaxModel = (props) => {
 
         // 4. Interactive Lighting
         // Spot light or Point light follow
-        const light = group.current?.parent?.getObjectByName('mouseLight');
+        const light = group.current?.getObjectByName('mouseLight');
         if (light) {
             light.position.x = THREE.MathUtils.lerp(light.position.x, mouse.x * 3, 0.1);
             light.position.y = THREE.MathUtils.lerp(light.position.y, mouse.y * 3 + 2, 0.1);
@@ -104,22 +104,46 @@ const BaymaxModel = (props) => {
 
 
 const Robot = () => {
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    useEffect(() => {
+        // Add listener for changes to the screen size
+        const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+        // Set the initial value of the `isMobile` state variable
+        setIsMobile(mediaQuery.matches);
+
+        // Define a callback function to handle changes to the media query
+        const handleMediaQueryChange = (event) => {
+            setIsMobile(event.matches);
+        };
+
+        // Add the callback function as a listener for changes to the media query
+        mediaQuery.addEventListener('change', handleMediaQueryChange);
+
+        // Remove the listener when the component is unmounted
+        return () => {
+            mediaQuery.removeEventListener('change', handleMediaQueryChange);
+        };
+    }, []);
+
     return (
-        <div className="w-full h-full min-h-[450px] lg:min-h-[600px] relative">
+        <div className={`w-full relative ${isMobile ? 'h-[500px]' : 'h-full min-h-[600px]'}`}>
             <Canvas
                 shadows
                 dpr={[1, 2]}
-                gl={{ antialias: true, alpha: true }}
+                gl={{ antialias: true, alpha: true, preserveDrawingBuffer: true }}
                 camera={{ position: [0, 0, 5], fov: 50 }}
             >
-                {/* Stage automatically centers and scales the model to fit */}
                 <PresentationControls
+                    key={isMobile ? 'mobile' : 'desktop'}
                     speed={1.5}
                     global
-                    zoom={0.7}
+                    zoom={isMobile ? 2.8 : 0.8}
                     polar={[-0.1, Math.PI / 4]}
+                    config={{ mass: 1, tension: 170, friction: 26 }}
                 >
-                    <Stage environment="city" intensity={0.4} contactShadow={{ opacity: 0.5, blur: 2 }}>
+                    <Stage environment="city" intensity={0.6} contactShadow={{ opacity: 0.5, blur: 2 }}>
                         <React.Suspense fallback={null}>
                             <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
                                 <BaymaxModel />

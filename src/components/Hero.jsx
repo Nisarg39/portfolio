@@ -170,7 +170,7 @@ const Hero = () => {
             </motion.a>
           </motion.div>
         </motion.div>
-        <div className='flex-1 w-full h-[450px] sm:h-[400px] lg:h-full relative flex justify-center items-center'>
+        <div className='flex-1 w-full h-[500px] sm:h-[550px] lg:h-full relative flex justify-center items-center'>
           <Robot />
         </div>
       </motion.div>
