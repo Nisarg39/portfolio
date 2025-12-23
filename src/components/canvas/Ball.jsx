@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useRef, useEffect, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Decal,
@@ -12,12 +12,33 @@ import CanvasLoader from "../Loader";
 
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
+  const meshRef = useRef();
+
+  useMemo(() => {
+    if (meshRef.current) {
+      const position = meshRef.current.geometry.getAttribute('position');
+      if (position) {
+        let hasNaN = false;
+        for (let i = 0; i < position.count; i++) {
+          if (isNaN(position.getX(i)) || isNaN(position.getY(i)) || isNaN(position.getZ(i))) {
+            position.setXYZ(i, 0, 0, 0);
+            hasNaN = true;
+          }
+        }
+        if (hasNaN) {
+          position.needsUpdate = true;
+          meshRef.current.geometry.computeBoundingSphere();
+          meshRef.current.geometry.computeBoundingBox();
+        }
+      }
+    }
+  }, []);
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
       <ambientLight intensity={0.25} />
       <directionalLight position={[0, 0, 0.05]} />
-      <mesh castShadow receiveShadow scale={2.75}>
+      <mesh ref={meshRef} castShadow receiveShadow scale={2.75}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
           color='#fff8eb'
@@ -49,7 +70,6 @@ const BallCanvas = ({ icon }) => {
         <Ball imgUrl={icon} />
       </Suspense>
 
-      <Preload all />
     </Canvas>
   );
 };

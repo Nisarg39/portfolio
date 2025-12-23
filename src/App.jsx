@@ -16,11 +16,13 @@ import TermsConditionsPage from './pages/TermsConditionsPage';
 import AiSolutionsPage from './pages/services/AiSolutionsPage';
 import CustomSoftwarePage from './pages/services/CustomSoftwarePage';
 import MvpDevelopmentPage from './pages/services/MvpDevelopmentPage';
+import WebsiteDevelopmentPage from './pages/services/WebsiteDevelopmentPage';
+import AppDevelopmentPage from './pages/services/AppDevelopmentPage';
 
 const App = () => {
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <GoogleAnalytics />
         <Routes>
           <Route path="/" element={<MainLayout />}>
@@ -36,6 +38,8 @@ const App = () => {
             <Route path="services/ai-solutions" element={<AiSolutionsPage />} />
             <Route path="services/custom-software" element={<CustomSoftwarePage />} />
             <Route path="services/mvp-development" element={<MvpDevelopmentPage />} />
+            <Route path="services/website-development" element={<WebsiteDevelopmentPage />} />
+            <Route path="services/app-development" element={<AppDevelopmentPage />} />
 
             {/* Legal Routes */}
             <Route path="privacy-policy" element={<PrivacyPolicyPage />} />

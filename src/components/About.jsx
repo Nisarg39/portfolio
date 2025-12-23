@@ -56,61 +56,12 @@ const TechMarquee = () => {
       ref={containerRef}
       className="w-full overflow-hidden relative min-w-full mx-auto py-12 sm:py-8"
       style={{
-        background: '#050816'
+        background: 'transparent',
+        position: 'relative',
+        maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
       }}
     >
-      {/* Left side reveal effect */}
-      <div className="absolute left-0 top-0 h-full z-10 flex pointer-events-none">
-        {/* Solid edge */}
-        <div
-          className="w-[40px] sm:w-[80px] h-full"
-          style={{
-            background: '#050816'
-          }}
-        />
-        {/* Fade out effect */}
-        <div className="relative w-[100px] sm:w-[180px] h-full">
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `linear-gradient(to right, 
-                #050816 0%,
-                rgba(5, 8, 22, 0.95) 20%,
-                rgba(5, 8, 22, 0.8) 40%,
-                rgba(5, 8, 22, 0.4) 60%,
-                rgba(5, 8, 22, 0.2) 80%,
-                transparent 100%)`,
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Right side reveal effect */}
-      <div className="absolute right-0 top-0 h-full z-10 flex pointer-events-none">
-        {/* Fade out effect */}
-        <div className="relative w-[100px] sm:w-[180px] h-full">
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `linear-gradient(to left, 
-                #050816 0%,
-                rgba(5, 8, 22, 0.95) 20%,
-                rgba(5, 8, 22, 0.8) 40%,
-                rgba(5, 8, 22, 0.4) 60%,
-                rgba(5, 8, 22, 0.2) 80%,
-                transparent 100%)`,
-            }}
-          />
-        </div>
-        {/* Solid edge */}
-        <div
-          className="w-[40px] sm:w-[80px] h-full"
-          style={{
-            background: '#050816'
-          }}
-        />
-      </div>
-
       {/* Marquee content */}
       <motion.div
         className="flex whitespace-nowrap relative z-5 px-[50px] sm:px-[100px]"
@@ -160,35 +111,6 @@ const NeonButton = ({ children, onClick, isExpanded }) => {
           boxShadow: "inset 0 0 2px rgba(145, 94, 255, 0.5)"
         }}
       />
-      <style jsx>{`
-        @keyframes neonPulse {
-          0% {
-            box-shadow: 0 0 2px #915EFF,
-                        0 0 4px #915EFF,
-                        0 0 6px rgba(145, 94, 255, 0.8);
-            border: 1px solid rgba(145, 94, 255, 0.6);
-            text-shadow: 0 0 1px rgba(145, 94, 255, 0.5);
-          }
-          50% {
-            box-shadow: 0 0 4px #915EFF,
-                        0 0 8px #915EFF,
-                        0 0 12px rgba(145, 94, 255, 0.8),
-                        0 0 16px rgba(145, 94, 255, 0.6);
-            border: 1px solid rgba(145, 94, 255, 0.9);
-            text-shadow: 0 0 2px rgba(145, 94, 255, 0.7);
-          }
-          100% {
-            box-shadow: 0 0 2px #915EFF,
-                        0 0 4px #915EFF,
-                        0 0 6px rgba(145, 94, 255, 0.8);
-            border: 1px solid rgba(145, 94, 255, 0.6);
-            text-shadow: 0 0 1px rgba(145, 94, 255, 0.5);
-          }
-        }
-        button:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </motion.button>
   );
 };
@@ -220,7 +142,7 @@ const About = () => {
 Ready to scale your digital presence with a partner that understands business outcomes? Let's engineer your future together.`;
 
   return (
-    <section id='about'>
+    <>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Strategic Technology Partner</p>
         <h2 className={styles.sectionHeadText}>Engineering Scalable Digital Solutions</h2>
@@ -249,7 +171,7 @@ Ready to scale your digital presence with a partner that understands business ou
       <div className='mt-20'>
         <TechMarquee />
       </div>
-    </section>
+    </>
   )
 }
 

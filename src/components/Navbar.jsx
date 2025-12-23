@@ -8,7 +8,23 @@ import { logo, menu, close } from '../assets'
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     // Set active link based on current path
@@ -22,7 +38,14 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
+      className={`${styles.paddingX
+        } w-full flex items-center py-5 fixed top-0 z-50 transition-all duration-500 ${scrolled ? "bg-primary/90 backdrop-blur-xl py-3 shadow-lg shadow-purple-900/10" : "bg-transparent py-5"
+        }`}
+      style={{
+        background: scrolled
+          ? 'linear-gradient(180deg, rgba(5, 8, 22, 0.95) 0%, rgba(5, 8, 22, 0.85) 100%)'
+          : 'linear-gradient(180deg, rgba(5, 8, 22, 0.4) 0%, transparent 100%)',
+      }}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link

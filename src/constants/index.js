@@ -30,6 +30,7 @@ import {
   vicharwebsite,
   dominate_performance,
   voyyage_invest,
+  vichar_app,
 } from "../assets";
 
 export const navLinks = [
@@ -52,6 +53,14 @@ export const navLinks = [
 ];
 
 const services = [
+  {
+    title: "Modern Website Development",
+    icon: web,
+  },
+  {
+    title: "Android & iOS Development",
+    icon: mobile,
+  },
   {
     title: "AI & Neural Integration",
     icon: web,
@@ -207,7 +216,7 @@ const projects = [
     deployed_link: "https://www.onereport.in"
   },
   {
-    name: "Vichar | EduTech Eco",
+    name: "Vichar Group | EduTech Eco",
     description:
       "Problem: Fragmentation in competitive exam prep with no synchronized web/mobile experience.\nSolution: We architected a scalable multi-platform ecosystem with real-time analytics.\nImpact: Handled 50k+ concurrent users with AWS auto-scaling, achieving zero downtime during peak exam seasons.",
     tags: [
@@ -229,7 +238,7 @@ const projects = [
     deployed_link: "https://www.vichargroup.com"
   },
   {
-    name: "Dominate | Neuro-Performance",
+    name: "Dominate Performance | Neuro-Performance",
     description:
       "Problem: Low user engagement in standard fitness apps lacking personalized feedback.\nSolution: A gamified performance platform utilizing Sports Science algorithms and WebGL.\nImpact: 3x increase in user retention rates and successful deployment of high-fidelity animations on low-end devices.",
     tags: [
@@ -251,7 +260,7 @@ const projects = [
     deployed_link: "https://www.dominateperformance.com"
   },
   {
-    name: "Voyyage | Fintech Advisory",
+    name: "Voyyage Invest | Fintech Advisory",
     description:
       "Problem: Real-time financial advisory was inaccessible to retail investors due to data lag.\nSolution: We built a high-frequency data ingestion engine using Puppeteer and MongoDB.\nImpact: Enabled sub-second price monitoring for 10k+ assets, leading to a 30% increase in alpha for the platform's beta users.",
     tags: [
@@ -271,6 +280,28 @@ const projects = [
     image: voyyage_invest,
     source_code_link: "https://github.com/Nisarg39/voyyage_invest",
     deployed_link: "https://www.voyyageinvest.com"
+  },
+  {
+    name: "Vichar App | Learning App",
+    description:
+      "Problem: Quality JEE/NEET prep was restricted by geography and high coaching costs.\nSolution: A feature-rich mobile learning platform with offline video downloads and localized test series.\nImpact: Successfully scaled to 10k+ active students with a 4.5+ Play Store rating, democratizing access to elite education.",
+    tags: [
+      {
+        name: "React-Native",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Firebase-Auth",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Cloud-Storage",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: vichar_app,
+    source_code_link: "https://github.com/Nisarg39/vicharGroup",
+    deployed_link: "https://play.google.com/store/apps/details?id=com.vichareducation.jee_neet"
   }
 ];
 

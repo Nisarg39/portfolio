@@ -1,7 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { styles } from '../styles';
-import { Code, Server, Database, Layers, Smartphone, Network } from 'lucide-react';
+import { useRef, Suspense, useEffect } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Float } from '@react-three/drei';
+import * as THREE from 'three';
 import Robot from './Robot';
+import HeroBackground3D from './canvas/HeroBackground3D';
 
 
 const Hero = () => {
@@ -10,53 +14,96 @@ const Hero = () => {
   const mainContentY = useTransform(scrollYProgress, [0, 0.5], ['0%', '-50%']);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  const floatingElements = Array.from({ length: 15 }, (_, i) => ({
-    initialX: Math.random() * 100,
-    initialY: Math.random() * 100,
-    delay: Math.random() * 2,
-    duration: 3 + Math.random() * 2
-  }));
-
-  const techStack = [
-    { name: 'AI Agent Integration', icon: Network, iconColor: 'text-blue-400' },
-    { name: 'Enterprise Custom SaaS', icon: Layers, iconColor: 'text-purple-400' },
-    { name: 'Fintech MVP Development', icon: Server, iconColor: 'text-green-400' },
-    { name: 'Process Automation', icon: Database, iconColor: 'text-orange-400' },
-    { name: 'Scalable Cloud Architecture', icon: Database, iconColor: 'text-cyan-400' },
-    { name: 'Legacy System Modernization', icon: Code, iconColor: 'text-yellow-400' }
-  ];
-
   return (
-    <section id='home' className='relative w-full h-screen mx-auto overflow-hidden'
+    <section id='home' className='relative w-full min-h-screen mx-auto overflow-hidden bg-primary'
       style={{ perspective: '1000px' }}>
-      {/* Background Micro-Stars/Particles */}
-      {floatingElements.map((el, index) => (
+
+      {/* Premium Background Layer */}
+      <div className='absolute inset-0 z-0'>
+        {/* Animated Gradient Mesh Blobs */}
         <motion.div
-          key={index}
-          style={{
-            position: 'absolute',
-            left: `${el.initialX}%`,
-            top: `${el.initialY}%`,
-            width: '2px',
-            height: '2px',
-            background: '#915eff',
-            borderRadius: '50%',
-            filter: 'blur(1px)',
-            zIndex: 0
-          }}
           animate={{
-            y: [0, 100, 0],
-            opacity: [0.2, 1, 0.2],
-            scale: [1, 2, 1]
+            x: [0, 30, -20, 0],
+            y: [0, -40, 20, 0],
+            scale: [1, 1.1, 0.95, 1],
           }}
           transition={{
-            duration: el.duration,
-            delay: el.delay,
+            duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: "easeInOut",
+          }}
+          className='absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full opacity-30'
+          style={{
+            background: 'radial-gradient(circle, rgba(145, 94, 255, 0.4) 0%, rgba(145, 94, 255, 0.1) 40%, transparent 70%)',
+            filter: 'blur(60px)',
           }}
         />
-      ))}
+        <motion.div
+          animate={{
+            x: [0, -40, 30, 0],
+            y: [0, 30, -40, 0],
+            scale: [1, 0.9, 1.15, 1],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className='absolute top-20 right-0 w-[500px] h-[500px] rounded-full opacity-20'
+          style={{
+            background: 'radial-gradient(circle, rgba(56, 189, 248, 0.4) 0%, rgba(56, 189, 248, 0.1) 40%, transparent 70%)',
+            filter: 'blur(80px)',
+          }}
+        />
+        <motion.div
+          animate={{
+            x: [0, 50, -30, 0],
+            y: [0, -20, 40, 0],
+            scale: [1, 1.2, 0.9, 1],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className='absolute bottom-0 left-1/4 w-[700px] h-[700px] rounded-full opacity-15'
+          style={{
+            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, rgba(168, 85, 247, 0.1) 40%, transparent 70%)',
+            filter: 'blur(100px)',
+          }}
+        />
+
+        {/* Subtle Grid Pattern */}
+        <div className='absolute inset-0 opacity-40'
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(145, 94, 255, 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(145, 94, 255, 0.03) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px',
+          }}
+        />
+
+        {/* Radial Gradient Overlay */}
+        <div className='absolute inset-0'
+          style={{
+            background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(145, 94, 255, 0.15) 0%, transparent 60%)',
+          }}
+        />
+
+        {/* Bottom Fade */}
+        <div className='absolute bottom-0 left-0 right-0 h-40'
+          style={{
+            background: 'linear-gradient(to top, #050816 0%, transparent 100%)',
+          }}
+        />
+
+        {/* Grain Texture Overlay */}
+        <div className='absolute inset-0 grain-texture-overlay' />
+      </div>
+
+      {/* 3D Animated Background - Mouse Reactive */}
+      <HeroBackground3D />
 
       {/* Hero Content Layer */}
       <motion.div
@@ -64,121 +111,76 @@ const Hero = () => {
           y: mainContentY,
           opacity: opacityTransform,
         }}
-        className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-5 z-20`}
+        className={`${styles.paddingX} relative lg:absolute inset-0 pt-[100px] sm:pt-[120px] lg:pt-0 lg:top-[120px] max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-5 z-20`}
       >
         <div className='hidden lg:flex flex-col justify-center items-center mt-5'>
           <div className='w-5 h-5 rounded-full bg-[#915eff]' />
           <div className='w-1 sm:h-80 h-40 violet-gradient' />
         </div>
 
-        <div className='w-full lg:max-w-md xl:max-w-lg relative'>
-          <h1 className={`${styles.heroHeadText} text-white lg:text-6xl xl:text-7xl`}>
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className='w-full lg:max-w-md xl:max-w-lg relative z-20'
+        >
+          <h1 className={`${styles.heroHeadText} text-white lg:text-6xl xl:text-7xl`} style={{
+            textShadow: '2px 2px 10px rgba(145, 94, 255, 0.3), 0 0 20px rgba(0,0,0,0.5)'
+          }}>
             Step Into <span className='text-[#915eff]'>NashTech</span>
           </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+          <p className='text-[#dfd9ff] font-medium lg:text-[20px] sm:text-[18px] xs:text-[16px] text-[14px] lg:leading-[30px] mt-4 text-white-100 opacity-90'>
             We build scalable digital infrastructure and
             <br className='sm:block hidden' />AI-powered solutions that drive business growth.
           </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className='mt-6 lg:mt-8 flex flex-wrap gap-2 lg:gap-3'
-          >
-            {techStack.map((tech, index) => {
-              const IconComponent = tech.icon;
-              return (
-                <motion.span
-                  key={tech.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                  whileHover={{ scale: 1.05, backgroundColor: '#915eff' }}
-                  className='px-2 py-1 lg:px-3 lg:py-1 bg-tertiary rounded-full text-white text-xs lg:text-sm border border-[#915eff]/30 hover:border-[#915eff] transition-all duration-300 cursor-pointer flex items-center gap-1 lg:gap-2'
-                >
-                  <IconComponent size={12} className={`lg:w-4 lg:h-4 ${tech.iconColor}`} />
-                  {tech.name}
-                </motion.span>
-              );
-            })}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className='mt-4 lg:mt-6 flex gap-4 lg:gap-6 text-white'
-          >
-            <div className='text-center'>
-              <motion.div className='text-lg lg:text-2xl font-bold text-[#915eff]'>24/7</motion.div>
-              <div className='text-xs lg:text-sm text-secondary'>Availability</div>
-            </div>
-            <div className='text-center'>
-              <motion.div className='text-lg lg:text-2xl font-bold text-[#915eff]'>3x</motion.div>
-              <div className='text-xs lg:text-sm text-secondary'>Faster Delivery</div>
-            </div>
-            <div className='text-center'>
-              <motion.div className='text-lg lg:text-2xl font-bold text-[#915eff]'>100%</motion.div>
-              <div className='text-xs lg:text-sm text-secondary'>Client Success</div>
-            </div>
-          </motion.div>
+          <div className='mt-8 flex flex-wrap gap-4'>
+            {[
+              { label: 'Availability', value: '24/7' },
+              { label: 'Faster Delivery', value: '3x' },
+              { label: 'Client Success', value: '100%' }
+            ].map((stat, idx) => (
+              <motion.div
+                key={idx}
+                whileHover={{ scale: 1.05, translateY: -5 }}
+                className='glassmorphism p-4 rounded-2xl flex flex-col items-center justify-center min-w-[120px] border border-white/10'
+                style={{
+                  boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+                }}
+              >
+                <div className='text-xl lg:text-3xl font-extrabold text-[#915eff] mb-1'>{stat.value}</div>
+                <div className='text-[10px] lg:text-xs text-secondary uppercase tracking-widest font-semibold opacity-70'>{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
 
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
+            transition={{ duration: 0.8, delay: 1.5 }}
             className="mt-10"
           >
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(145, 94, 255, 0.4)" }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-black px-8 py-3.5 rounded-full font-bold text-base flex items-center gap-2 w-fit transition-all duration-300"
+              className="bg-white text-black px-10 py-4 rounded-full font-bold text-base flex items-center gap-2 w-fit transition-all duration-300 shadow-[0_4px_15px_rgba(255,255,255,0.2)]"
             >
               Start a Project <span>→</span>
             </motion.a>
           </motion.div>
-        </div>
-        <div className='flex-1 w-full h-[300px] sm:h-[400px] lg:h-full relative flex justify-center items-center'>
+        </motion.div>
+        <div className='flex-1 w-full h-[450px] sm:h-[400px] lg:h-full relative flex justify-center items-center'>
           <Robot />
         </div>
-
       </motion.div>
 
-      {/* Scroll Transition Effects */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '70vh',
-          background: `linear-gradient(to top, rgba(16, 13, 37, 1) 25%, rgba(16, 13, 37, 0.9) 50%, rgba(16, 13, 37, 0.5) 75%, rgba(16, 13, 37, 0) 100%)`,
-          opacity: useTransform(scrollYProgress, [0, 0.25, 0.5], [0, 0.5, 1]),
-          translateY: useTransform(scrollYProgress, [0, 1], ['100%', '0%']),
-          zIndex: 5,
-          pointerEvents: 'none'
-        }}
-      />
 
-      <motion.div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '12vh',
-          backgroundColor: 'rgb(16, 13, 37)',
-          opacity: useTransform(scrollYProgress, [0.3, 0.5], [0, 1]),
-          zIndex: 4,
-          pointerEvents: 'none'
-        }}
-      />
+
 
       <motion.div
         style={{ opacity: useTransform(scrollYProgress, [0, 0.2], [1, 0]) }}
-        className='absolute xs:bottom-10 bottom-4 w-full flex justify-center items-center z-30 mt-[650px] lg:mt-0'
+        className='absolute xs:bottom-10 bottom-4 w-full flex justify-center items-center z-30 lg:mt-0'
       >
         <a href="#about">
           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>

@@ -38,6 +38,8 @@ import vicharwebsite from "./vicharwebsite.png";
 import dominate_performance from "./dominateperformance.png";
 import voyyage_invest from "./voyyageinvest.png";
 import ai_side_profile from "./ai_side_profile.png";
+import vichar_app from "./vichar_app.png";
+
 export {
   logo,
   backend,
@@ -76,4 +78,5 @@ export {
   dominate_performance,
   voyyage_invest,
   ai_side_profile,
+  vichar_app,
 };
