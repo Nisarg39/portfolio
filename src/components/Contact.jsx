@@ -18,14 +18,32 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
+  const isFormValid = form.name.trim() !== '' &&
+    form.email.trim() !== '' &&
+    validateEmail(form.email) &&
+    form.message.trim() !== '';
+
   const handleChange = (e) => {
-    const { target } = e;
     const { name, value } = e.target;
     setForm({ ...form, [name]: value })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!isFormValid) {
+      alert('Please fill out all fields with a valid email.');
+      return;
+    }
+
     setLoading(true);
 
     // template_7j0604f
@@ -140,9 +158,10 @@ const Contact = () => {
 
           <motion.button
             type="submit"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="bg-[#915eff] py-3.5 px-10 outline-none w-fit text-white font-bold shadow-2xl shadow-[#915eff]/20 rounded-2xl hover:bg-[#804dee] transition-all flex items-center gap-3 text-[16px] group"
+            disabled={!isFormValid || loading}
+            whileHover={isFormValid && !loading ? { scale: 1.02 } : {}}
+            whileTap={isFormValid && !loading ? { scale: 0.98 } : {}}
+            className={`${isFormValid && !loading ? 'bg-[#915eff] hover:bg-[#804dee] cursor-pointer' : 'bg-gray-500 cursor-not-allowed opacity-50'} py-3.5 px-10 outline-none w-fit text-white font-bold shadow-2xl shadow-[#915eff]/20 rounded-2xl transition-all flex items-center gap-3 text-[16px] group`}
           >
             {loading ? 'Sending Request...' : (
               <>
