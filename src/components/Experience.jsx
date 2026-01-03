@@ -1,4 +1,4 @@
-import { VerticalTimeline, VerticalTimelineElement} from 'react-vertical-timeline-component';
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import { motion } from 'framer-motion';
 import 'react-vertical-timeline-component/style.min.css';
 import { styles } from '../styles';
@@ -7,16 +7,16 @@ import { SectionWrapper } from '../hoc';
 import { textVariant } from '../utils/motion';
 import { useEffect, useState } from 'react';
 
-const ExperienceCard = ({experience, isActive}) => (
+const ExperienceCard = ({ experience, isActive }) => (
   <VerticalTimelineElement
-    contentStyle={{ 
+    contentStyle={{
       background: 'transparent',
       color: '#fff',
       border: 'none',
       boxShadow: 'none',
       padding: '0'
     }}
-    contentArrowStyle={{ borderRight: '7px solid #232631'}}
+    contentArrowStyle={{ borderRight: '7px solid #232631' }}
     date={experience.date}
     iconStyle={{
       background: experience.iconBg,
@@ -25,14 +25,14 @@ const ExperienceCard = ({experience, isActive}) => (
     icon={
       <div className='flex justify-center items-center w-full h-full rounded-full overflow-hidden' style={{ zIndex: '100' }}>
         <img src={experience.icon}
-        alt={`${experience.company_name} company logo - ${experience.title} position`}
-        className='w-full h-full object-cover rounded-full'
-        loading="lazy"
+          alt={`${experience.company_name} company logo - ${experience.title} position`}
+          className='w-full h-full object-cover rounded-full'
+          loading="lazy"
         />
       </div>
     }
   >
-    <div 
+    <div
       className="bg-black-100 highlight-card"
       style={{
         position: 'relative',
@@ -50,7 +50,7 @@ const ExperienceCard = ({experience, isActive}) => (
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        
+
         // Update glare position
         const glare = card.querySelector('.glare-effect');
         if (glare) {
@@ -60,7 +60,7 @@ const ExperienceCard = ({experience, isActive}) => (
       }}
       onMouseLeave={(e) => {
         const card = e.currentTarget;
-        
+
         const glare = card.querySelector('.glare-effect');
         if (glare) {
           glare.style.opacity = '0';
@@ -68,7 +68,7 @@ const ExperienceCard = ({experience, isActive}) => (
       }}
     >
       {/* Glare Effect Overlay - Covers entire card */}
-      <div 
+      <div
         className="glare-effect"
         style={{
           position: 'absolute',
@@ -90,7 +90,7 @@ const ExperienceCard = ({experience, isActive}) => (
         <div>
           <h3 className='text-white text-[24px] font-bold'> {experience.title}</h3>
           <p className='text-secondary text-[16px] font-semibold'
-            style={{margin: 0}}
+            style={{ margin: 0 }}
           >{experience.company_name}</p>
         </div>
 
@@ -99,7 +99,7 @@ const ExperienceCard = ({experience, isActive}) => (
             <li
               key={`experience-point-${index}`}
               className='text-white-100 text-[14px] pl-1 tracking-wider'
-            > 
+            >
               {point}
             </li>
           ))}
@@ -121,10 +121,10 @@ const Experience = () => {
         const sectionTop = rect.top;
         const sectionHeight = rect.height;
         const windowHeight = window.innerHeight;
-        
+
         const scrolled = Math.max(0, windowHeight - sectionTop);
         const progress = Math.min(scrolled / (sectionHeight + windowHeight), 1);
-        
+
         setScrollProgress(progress);
 
         // Calculate which card should be active based on scroll progress
@@ -135,7 +135,7 @@ const Experience = () => {
 
     window.addEventListener('scroll', handleScroll);
     handleScroll();
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -156,9 +156,9 @@ const Experience = () => {
           <p className={styles.sectionSubText}>what i have done so far</p>
           <h2 className={styles.sectionHeadText}>Work Experience</h2>
         </motion.div>
-        
-        <div 
-          className='mt-20 flex flex-col timeline-container' 
+
+        <div
+          className='mt-20 flex flex-col timeline-container'
           style={{ position: 'relative' }}
         >
           {/* Animated Timeline Line Overlay */}
@@ -208,8 +208,8 @@ const Experience = () => {
 
           <VerticalTimeline>
             {experiences.map((experience, index) => (
-              <ExperienceCard 
-                key={index} 
+              <ExperienceCard
+                key={index}
                 experience={experience}
                 isActive={index === activeCardIndex}
               />
@@ -218,195 +218,8 @@ const Experience = () => {
         </div>
       </div>
 
-      {/* Keyframe Animations */}
-      <style>
-        {`
-          .aurora-background {
-            position: absolute;
-            top: 15%;
-            left: 15%;
-            width: 70%;
-            height: 70%;
-            overflow: hidden;
-            z-index: 1;
-            background: radial-gradient(circle at center, transparent 0%, #050816 70%);
-            border-radius: 20px;
-          }
-
-          .aurora-layer {
-            position: absolute;
-            width: 120%;
-            height: 120%;
-            border-radius: 50%;
-            filter: blur(50px);
-            opacity: 0.5;
-            mix-blend-mode: screen;
-            animation: aurora-move 15s ease-in-out infinite alternate;
-          }
-
-          .aurora-layer-1 {
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 60%);
-            top: -20%;
-            left: -10%;
-            animation-delay: -5s;
-          }
-
-          .aurora-layer-2 {
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 60%);
-            top: -15%;
-            right: -10%;
-            animation-delay: -10s;
-          }
-
-          .aurora-layer-3 {
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, transparent 60%);
-            bottom: -15%;
-            left: -5%;
-            animation-delay: -15s;
-          }
-
-          .aurora-layer-4 {
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 60%);
-            bottom: -10%;
-            right: -10%;
-            animation-delay: -20s;
-          }
-
-          @keyframes aurora-move {
-            0% {
-              transform: rotate(0deg) scale(1);
-            }
-            100% {
-              transform: rotate(360deg) scale(1.2);
-            }
-          }
-
-          .aurora-overlay {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, transparent 0%, rgba(5, 8, 22, 0.95) 70%);
-            z-index: 2;
-            border-radius: 20px;
-          }
-
-          /* Override default timeline line styles */
-          .vertical-timeline::before {
-            display: none !important;
-          }
-
-          /* Ensure timeline icons have higher z-index */
-          .vertical-timeline-element-icon {
-            z-index: 100 !important;
-          }
-
-          /* Responsive aurora effects */
-          @media (max-width: 768px) {
-            .aurora-background {
-              width: 100%;
-              height: 100%;
-              left: 0;
-              top: 0;
-              opacity: 0.7;
-              transform: translateZ(0);
-              backface-visibility: hidden;
-              perspective: 1000px;
-            }
-
-            .aurora-layer {
-              filter: blur(25px);
-              opacity: 0.3;
-              transform-style: preserve-3d;
-              backface-visibility: hidden;
-              perspective: 1000px;
-              animation: none; /* Remove rotation animation */
-            }
-
-            /* Static positioning for layers */
-            .aurora-layer-1 {
-              background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), transparent);
-              top: 0;
-              left: 0;
-            }
-
-            .aurora-layer-2 {
-              background: linear-gradient(225deg, rgba(139, 92, 246, 0.2), transparent);
-              top: 0;
-              right: 0;
-            }
-
-            .aurora-layer-3 {
-              background: linear-gradient(315deg, rgba(6, 182, 212, 0.2), transparent);
-              bottom: 0;
-              left: 0;
-            }
-
-            .aurora-layer-4 {
-              background: linear-gradient(45deg, rgba(16, 185, 129, 0.2), transparent);
-              bottom: 0;
-              right: 0;
-            }
-          }
-
-          @media (prefers-reduced-motion: reduce) {
-            .aurora-layer {
-              animation: none;
-            }
-          }
-
-          /* Highlight Card Effect */
-          .highlight-card::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            background: linear-gradient(
-              45deg,
-              rgba(145, 94, 255, 0.5),
-              rgba(59, 130, 246, 0.5)
-            );
-            z-index: -1;
-            filter: blur(8px);
-            opacity: 0;
-            transition: opacity 0.3s ease-out;
-          }
-
-          .highlight-card.active::before {
-            opacity: 1;
-          }
-
-          @keyframes pulse {
-            0% {
-              box-shadow: 0 0 0 0 rgba(145, 94, 255, 0.4);
-            }
-            70% {
-              box-shadow: 0 0 0 10px rgba(145, 94, 255, 0);
-            }
-            100% {
-              box-shadow: 0 0 0 0 rgba(145, 94, 255, 0);
-            }
-          }
-
-          @media screen and (max-width: 1169px) {
-            .timeline-container > div:first-of-type {
-              left: 31px !important;
-              width: 2px;
-              height: calc(100% - 50px) !important;
-              top: 60px !important;
-            }
-
-            /* Keep progress line centered */
-            .timeline-container > div:first-of-type > div {
-              left: 0 !important;
-              width: 100% !important;
-            }
-
-            /* Center dot indicator */
-            .timeline-container > div:first-of-type > div > div {
-              left: 50% !important;
-            }
-          }
-        `}
-      </style>
-    </section>
+    </style>
+    </section >
   )
 }
 

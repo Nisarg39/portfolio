@@ -425,3 +425,13 @@ body {
     opacity: 0.4;
   }
 }
+
+/* Text Stroke Utility */
+.text-stroke-white {
+  -webkit-text-stroke: 1px white;
+}
+
+.mask-image-gradient {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}

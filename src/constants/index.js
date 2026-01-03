@@ -213,7 +213,8 @@ const projects = [
     ],
     image: onereport,
     source_code_link: "https://github.com/Nisarg39/onereport",
-    deployed_link: "https://www.onereport.in"
+    deployed_link: "https://www.onereport.in",
+    accent: "#915eff"
   },
   {
     name: "Vichar Group | EduTech Eco",
@@ -235,7 +236,8 @@ const projects = [
     ],
     image: vicharwebsite,
     source_code_link: "https://github.com/Nisarg39/vicharGroup",
-    deployed_link: "https://www.vichargroup.com"
+    deployed_link: "https://www.vichargroup.com",
+    accent: "#00cea8"
   },
   {
     name: "Dominate Performance | Neuro-Performance",
@@ -257,7 +259,8 @@ const projects = [
     ],
     image: dominate_performance,
     source_code_link: "https://github.com/Nisarg39/dominate_sports",
-    deployed_link: "https://www.dominateperformance.com"
+    deployed_link: "https://www.dominateperformance.com",
+    accent: "#ff61ff"
   },
   {
     name: "Voyyage Invest | Fintech Advisory",
@@ -279,7 +282,8 @@ const projects = [
     ],
     image: voyyage_invest,
     source_code_link: "https://github.com/Nisarg39/voyyage_invest",
-    deployed_link: "https://www.voyyageinvest.com"
+    deployed_link: "https://www.voyyageinvest.com",
+    accent: "#2f80ed"
   },
   {
     name: "Vichar App | Learning App",
@@ -301,7 +305,8 @@ const projects = [
     ],
     image: vichar_app,
     source_code_link: "https://github.com/Nisarg39/vicharGroup",
-    deployed_link: "https://play.google.com/store/apps/details?id=com.vichareducation.jee_neet"
+    deployed_link: "https://play.google.com/store/apps/details?id=com.vichareducation.jee_neet",
+    accent: "#f5af19"
   }
 ];
 
