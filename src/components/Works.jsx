@@ -17,7 +17,7 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
 
     const glare = card.querySelector('.glare-effect');
     if (glare) {
-      glare.style.background = `radial-gradient(circle 400px at ${x}px ${y}px, rgba(145, 94, 255, 0.15) 0%, rgba(145, 94, 255, 0.05) 40%, transparent 80%)`;
+      glare.style.background = `radial-gradient(circle 400px at ${x}px ${y}px, rgba(145, 94, 255, 0.2) 0%, rgba(145, 94, 255, 0.05) 40%, transparent 80%)`;
       glare.style.opacity = '1';
     }
   };
@@ -32,56 +32,60 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
       variants={fadeIn("up", "spring", index * 0.2, 0.75)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className='bg-black-100 p-5 rounded-3xl sm:w-[360px] w-full relative group overflow-hidden border border-white/5 backdrop-blur-sm'
+      className='bg-[#1d1836]/40 p-5 rounded-[32px] sm:w-[360px] w-full relative group overflow-hidden border border-white/10 backdrop-blur-md hover:border-purple-500/30 transition-all duration-500'
     >
       {/* Interactive Glare Overlay */}
       <div
         className="glare-effect absolute inset-0 opacity-0 transition-opacity duration-300 pointer-events-none z-10"
       />
 
-      <div className='relative w-full h-[230px] rounded-2xl overflow-hidden'>
+      <div className='relative w-full h-[230px] rounded-[24px] overflow-hidden'>
         <img
           src={image}
           alt='project_image'
-          className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-700'
+          className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000'
         />
 
-        <div className='absolute inset-0 flex justify-end m-3 card-img_hover gap-2 z-20'>
+        <div className='absolute inset-0 flex justify-end m-4 card-img_hover gap-2 z-20'>
           <div
             onClick={() => window.open(deployed_link, "_blank")}
-            className='white-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition-transform bg-white/10 backdrop-blur-sm'
+            className='w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:bg-purple-500 transition-colors bg-black/40 backdrop-blur-md border border-white/10'
           >
-            <ArrowUpRight className='w-1/2 h-1/2 object-contain text-white' />
+            <ArrowUpRight className='w-5 h-5 text-white' />
           </div>
         </div>
       </div>
 
-      <div className='mt-5 relative z-20'>
-        <div className='flex justify-between items-center mb-2'>
-          <h3 className='text-white font-bold text-[24px]'>{title}</h3>
-          <span className='text-secondary font-mono text-[10px] uppercase tracking-widest'>{category || "Build"}</span>
+      <div className='mt-6 relative z-20'>
+        <div className='flex justify-between items-start mb-2'>
+          <div>
+            <h3 className='text-white font-bold text-[22px] tracking-tight'>{title}</h3>
+            <p className='text-[#915eff] font-mono text-[9px] uppercase tracking-[0.3em] mt-1'>{category || "Digital Product"}</p>
+          </div>
         </div>
-        <p className='mt-2 text-secondary text-[14px] leading-relaxed line-clamp-3'>
-          {description.split("Impact:")[0]}
+
+        <p className='mt-3 text-secondary text-[14px] leading-relaxed line-clamp-2 opacity-80'>
+          {description.split("Impact:")[0].replace("Problem: ", "").replace("Solution: ", "")}
         </p>
 
         {description.includes("Impact:") && (
-          <div className='mt-4 p-3 bg-white/5 rounded-xl border border-white/5'>
-            <p className='text-[#915eff] text-[12px] font-bold'>Impact:</p>
-            <p className='text-white text-[12px] leading-tight mt-1'>{description.split("Impact:")[1]}</p>
+          <div className='mt-5 pl-4 border-l-2 border-purple-500/50 py-1'>
+            <p className='text-white/40 text-[10px] uppercase tracking-widest font-bold'>Impact</p>
+            <p className='text-white/90 text-[13px] leading-snug mt-1 italic font-medium'>
+              "{description.split("Impact:")[1].trim()}"
+            </p>
           </div>
         )}
       </div>
 
       <div className='mt-6 flex flex-wrap gap-2 relative z-20'>
         {tags.map((tag) => (
-          <p
+          <span
             key={`${name}-${tag.name}`}
-            className={`text-[12px] opacity-60 font-mono`}
-            style={{ color: tag.color || "#fff" }}
+            className='px-3 py-1 rounded-full bg-white/5 border border-white/5 text-[10px] font-mono text-white/60'
           >
             #{tag.name}
-          </p>
+          </span>
         ))}
       </div>
     </motion.div>
