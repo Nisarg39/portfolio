@@ -35,7 +35,7 @@ const Hero = () => {
   return (
     <section
       ref={containerRef}
-      className='relative w-full h-screen mx-auto overflow-hidden bg-primary flex flex-col justify-center'
+      className='relative w-full min-h-screen lg:h-screen mx-auto overflow-hidden bg-primary flex flex-col justify-center pt-28 lg:pt-0'
       onMouseMove={handleMouseMove}
       style={{ perspective: '1000px' }}
     >
@@ -50,7 +50,7 @@ const Hero = () => {
         <div className='absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[100px]' />
       </div>
 
-      <div className={`${styles.paddingX} max-w-7xl mx-auto w-full relative z-10 h-full flex flex-col justify-center`}>
+      <div className={`${styles.paddingX} max-w-7xl mx-auto w-full relative z-10 flex flex-col justify-center gap-10 lg:gap-0`}>
 
         {/* Massive Typography Layer */}
         <motion.div
@@ -109,17 +109,17 @@ const Hero = () => {
             rotateX,
             rotateY
           }}
-          className='absolute right-0 top-0 bottom-0 w-full lg:w-[60%] z-20 flex items-center justify-end pointer-events-none'
+          className='relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 w-full lg:w-[60%] z-20 flex items-center justify-center lg:justify-end pointer-events-none'
         >
           {/* Depth Layer: Back Glow */}
-          <div className='absolute right-[10%] top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-b from-[#915eff]/20 to-transparent rounded-full blur-[100px] -z-10 mix-blend-screen' />
+          <div className='absolute left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-[10%] top-1/2 -translate-y-1/2 w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] bg-gradient-to-b from-[#915eff]/20 to-transparent rounded-full blur-[80px] lg:blur-[100px] -z-10 mix-blend-screen' />
 
           {/* Character */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0, x: 100 }}
             animate={{ scale: 1, opacity: 1, x: 0 }}
             transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-            className='relative w-full max-w-[700px] mr-[-30px] lg:mr-[-40px]'
+            className='relative w-full max-w-[320px] xs:max-w-[450px] sm:max-w-[550px] lg:max-w-[700px] lg:mr-[-40px] px-4 lg:px-0 mx-auto'
             style={{ transformStyle: 'preserve-3d' }}
           >
             {/* Character Image */}
@@ -131,32 +131,32 @@ const Hero = () => {
               <img
                 src="/coder.png"
                 alt="Coder"
-                className='w-full h-auto object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.8)] mask-image-gradient'
+                className='w-full h-auto object-contain'
               />
             </motion.div>
 
             {/* Technical Annotations */}
             <motion.div
-              className="absolute top-[20%] left-[10%] z-30 flex items-center gap-3"
+              className="absolute top-[10%] left-[5%] lg:top-[20%] lg:left-[10%] z-30 flex items-center gap-2 lg:gap-3"
               style={{ transform: 'translateZ(100px)' }}
             >
               <div className='w-2 h-2 bg-green-500 rounded-full animate-pulse' />
-              <div className='h-[1px] w-12 bg-white/20' />
-              <div className="text-left backdrop-blur-sm bg-black/20 p-2 rounded border border-white/5">
-                <div className="text-lg font-bold text-white leading-none">24/7</div>
-                <div className="text-[9px] text-white/60 tracking-[0.2em] uppercase mt-1">System Active</div>
+              <div className='h-[1px] w-8 lg:w-12 bg-white/20' />
+              <div className="text-left backdrop-blur-sm bg-black/20 p-1.5 lg:p-2 rounded border border-white/5">
+                <div className="text-sm lg:text-lg font-bold text-white leading-none">24/7</div>
+                <div className="text-[7px] lg:text-[9px] text-white/60 tracking-[0.2em] uppercase mt-1">System Active</div>
               </div>
             </motion.div>
 
             <motion.div
-              className="absolute bottom-[15%] right-[10%] z-30 flex items-center gap-3 flex-row-reverse"
+              className="absolute bottom-[10%] right-[5%] lg:bottom-[15%] lg:right-[10%] z-30 flex items-center gap-2 lg:gap-3 flex-row-reverse"
               style={{ transform: 'translateZ(140px)' }}
             >
               <div className='w-2 h-2 bg-[#915eff] rounded-full' />
-              <div className='h-[1px] w-12 bg-white/20' />
-              <div className="text-right backdrop-blur-sm bg-black/20 p-2 rounded border border-white/5">
-                <div className="text-lg font-bold text-white leading-none">100%</div>
-                <div className="text-[9px] text-white/60 tracking-[0.2em] uppercase mt-1">Client Satisfaction</div>
+              <div className='h-[1px] w-8 lg:w-12 bg-white/20' />
+              <div className="text-right backdrop-blur-sm bg-black/20 p-1.5 lg:p-2 rounded border border-white/5">
+                <div className="text-sm lg:text-lg font-bold text-white leading-none">100%</div>
+                <div className="text-[7px] lg:text-[9px] text-white/60 tracking-[0.2em] uppercase mt-1">Client Satisfaction</div>
               </div>
             </motion.div>
           </motion.div>

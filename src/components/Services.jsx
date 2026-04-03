@@ -161,8 +161,8 @@ const Services = () => {
       <span className='hash-span'>&nbsp;</span>
 
       <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-start relative w-full">
-        <div className="lg:w-[40%] lg:sticky lg:top-1/2 lg:-translate-y-1/2 h-fit z-30">
-          <motion.div style={{ opacity, scale, y }}>
+        <div className="lg:w-[40%] lg:sticky lg:top-32 h-fit z-30">
+          <motion.div style={{ opacity, scale }}>
             <p className={styles.sectionSubText}>Our Ecosystem</p>
             <h2 className={styles.sectionHeadText}>Engineering Future Architectures</h2>
             <p className="text-secondary text-lg mt-4">We transform business pain-points into elegant solutions.</p>

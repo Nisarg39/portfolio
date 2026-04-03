@@ -217,9 +217,7 @@ const Experience = () => {
           </VerticalTimeline>
         </div>
       </div>
-
-    </style>
-    </section >
+    </section>
   )
 }
 

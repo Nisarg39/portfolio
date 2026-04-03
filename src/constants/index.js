@@ -136,16 +136,30 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Founder & Lead Developer",
+    title: "Fullstack Developer",
+    company_name: "Scriptlanes",
+    icon: "https://static.wixstatic.com/media/68bb4a_7aa07b5f7868489a883a05c5a198dab6~mv2.png/v1/fill/w_104,h_108,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/sl-logo.png",
+    iconBg: "#FFFFFF",
+    date: "March 2026 - Present",
+    points: [
+      "Developing and maintaining web applications using React.js and other related technologies.",
+      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+      "Implementing responsive design and ensuring cross-browser compatibility.",
+      "Participating in code reviews and providing constructive feedback to other developers.",
+    ],
+  },
+  {
+    title: "Full-Stack Freelancer",
     company_name: "NashTech Solutions",
     icon: freelance_logo,
     iconBg: "#E6DEDD",
-    date: "February 2024 - Present",
+    date: "February 2024 - February 2026",
     points: [
       "Architecting scalable Full Stack applications using the MERN ecosystem and Next.js.",
       "Delivering custom AI integrations and automation tools that reduce client operational costs by up to 40%.",
       "Leading end-to-end product development for startups, from MVP prototyping to cloud deployment.",
       "Optimizing technical SEO and web performance (Core Web Vitals) for enterprise-level platforms.",
+      "Worked with clients like Vichar Group, Voyyage Invest, Dominate Performance and One-Report.",
     ],
   },
 

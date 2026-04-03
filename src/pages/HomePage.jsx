@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { About, Contact, Hero, Works, StarsCanvas, Services, FAQ, SeoHead } from '../components';
+import { About, Contact, Hero, Works, StarsCanvas, Services, Experience, FAQ, SeoHead } from '../components';
 
 const HomePage = () => {
 
@@ -32,6 +32,7 @@ const HomePage = () => {
       <Hero />
       <About />
       <Services />
+      <Experience />
       <Works />
       <FAQ />
       <div className='relative z-0'>
