@@ -56,10 +56,10 @@ const Contact = () => {
       {
 
         from_name: form.name,
-        to_name: "Nisarg",
         from_email: form.email,
+        to_name: "Nisarg",
         to_email: "shah.nisarg39@gmail.com",
-        message: form.message,
+        message: `${form.message}\n\nClient Email: ${form.email}`,
 
       },
       'Myk5D5pBag36G3OER'
