@@ -7,7 +7,8 @@ export const quickLinks = [
 
 export const legalLinks = [
   { title: 'Privacy Policy', path: '/privacy-policy' },
-  { title: 'Terms & Conditions', path: '/terms-conditions' }
+  { title: 'Terms & Conditions', path: '/terms-conditions' },
+  { title: 'Clarifin Privacy Policy', path: '/clarifin-privacy-policy' }
 ];
 
 export const socialLinks = [

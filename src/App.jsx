@@ -11,6 +11,7 @@ import WorkPage from './pages/WorkPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsConditionsPage from './pages/TermsConditionsPage';
+import ClarifinPrivacyPolicyPage from './pages/ClarifinPrivacyPolicyPage';
 
 // Service Specific Pages
 import AiSolutionsPage from './pages/services/AiSolutionsPage';
@@ -44,6 +45,7 @@ const App = () => {
             {/* Legal Routes */}
             <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="terms-conditions" element={<TermsConditionsPage />} />
+            <Route path="clarifin-privacy-policy" element={<ClarifinPrivacyPolicyPage />} />
 
             {/* Fallback */}
             <Route path="*" element={<HomePage />} />
