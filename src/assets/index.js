@@ -39,6 +39,7 @@ import dominate_performance from "./dominateperformance.png";
 import voyyage_invest from "./voyyageinvest.png";
 import ai_side_profile from "./ai_side_profile.png";
 import vichar_app from "./vichar_app.png";
+import clarifin_homepage from "./clarifin_homepage.png";
 
 export {
   logo,
@@ -79,4 +80,5 @@ export {
   voyyage_invest,
   ai_side_profile,
   vichar_app,
+  clarifin_homepage,
 };

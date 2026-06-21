@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
@@ -30,6 +30,8 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
   return (
     <motion.div
       variants={fadeIn("up", "spring", index * 0.2, 0.75)}
+      initial="hidden"
+      animate="show"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className='bg-[#1d1836]/40 p-5 rounded-[32px] sm:w-[360px] w-full relative group overflow-hidden border border-white/10 backdrop-blur-md hover:border-purple-500/30 transition-all duration-500'
@@ -93,6 +95,12 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
 };
 
 const Works = () => {
+  const [activeCategory, setActiveCategory] = useState("freelancing");
+
+  const filteredProjects = projects.filter(
+    (project) => project.category === activeCategory
+  );
+
   return (
     <section id="work" className="relative z-0">
       {/* Aurora Background - Replicating Experience.jsx DNA */}
@@ -123,9 +131,35 @@ const Works = () => {
           </motion.p>
         </div>
 
+        {/* Category Badges Selectors */}
+        <div className='mt-12 flex justify-center'>
+          <div className='bg-[#1d1836]/40 p-1.5 rounded-full border border-white/10 backdrop-blur-md flex gap-2 relative z-25'>
+            <button
+              onClick={() => setActiveCategory("freelancing")}
+              className={`px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold transition-all duration-300 ${
+                activeCategory === "freelancing"
+                  ? "bg-gradient-to-r from-[#915eff] to-[#bf61ff] text-white shadow-[0_0_15px_rgba(145,94,255,0.3)]"
+                  : "text-secondary hover:text-white"
+              }`}
+            >
+              Freelancing
+            </button>
+            <button
+              onClick={() => setActiveCategory("personal")}
+              className={`px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold transition-all duration-300 ${
+                activeCategory === "personal"
+                  ? "bg-gradient-to-r from-[#915eff] to-[#bf61ff] text-white shadow-[0_0_15px_rgba(145,94,255,0.3)]"
+                  : "text-secondary hover:text-white"
+              }`}
+            >
+              Personal
+            </button>
+          </div>
+        </div>
+
         <div className='mt-20 flex flex-wrap gap-7 justify-center'>
-          {projects.map((project, index) => (
-            <ProjectCard key={`project-${index}`} index={index} {...project} />
+          {filteredProjects.map((project, index) => (
+            <ProjectCard key={project.name} index={index} {...project} />
           ))}
         </div>
       </div>

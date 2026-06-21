@@ -31,6 +31,7 @@ import {
   dominate_performance,
   voyyage_invest,
   vichar_app,
+  clarifin_homepage,
 } from "../assets";
 
 export const navLinks = [
@@ -127,6 +128,7 @@ const technologies = [
   // {
   //   name: "figma",
   //   icon: figma,
+  //   icon: figma,
   // },
   // {
   //   name: "docker",
@@ -209,6 +211,7 @@ const testimonials = [
 const projects = [
   {
     name: "OneReport | AI SaaS",
+    category: "personal",
     description:
       "Problem: Independent agencies wasting 20+ hours weekly on manual data reporting.\nSolution: An AI-driven automation engine that pulls cross-platform metrics into real-time dashboards.\nImpact: 85% reduction in reporting overhead and 100% data accuracy for over 200+ agency users.",
     tags: [
@@ -231,7 +234,32 @@ const projects = [
     accent: "#915eff"
   },
   {
+    name: "Clarifin App | Fintech Education",
+    category: "personal",
+    description:
+      "The intelligent, AI-driven financial education app built for absolute clarity. Stop guessing, start understanding.\nImpact: 100% people when used this app came to realise that there are way more investment options then they researched or know about .",
+    tags: [
+      {
+        name: "react native",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "express",
+        color: "green-text-gradient",
+      },
+      {
+        name: "nextjs",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: clarifin_homepage,
+    source_code_link: "https://github.com/Nisarg39/clarifin",
+    deployed_link: "https://www.clarifin.app/",
+    accent: "#915eff"
+  },
+  {
     name: "Vichar Group | EduTech Eco",
+    category: "freelancing",
     description:
       "Problem: Fragmentation in competitive exam prep with no synchronized web/mobile experience.\nSolution: We architected a scalable multi-platform ecosystem with real-time analytics.\nImpact: Handled 50k+ concurrent users with AWS auto-scaling, achieving zero downtime during peak exam seasons.",
     tags: [
@@ -255,6 +283,7 @@ const projects = [
   },
   {
     name: "Dominate Performance | Neuro-Performance",
+    category: "freelancing",
     description:
       "Problem: Low user engagement in standard fitness apps lacking personalized feedback.\nSolution: A gamified performance platform utilizing Sports Science algorithms and WebGL.\nImpact: 3x increase in user retention rates and successful deployment of high-fidelity animations on low-end devices.",
     tags: [
@@ -278,6 +307,7 @@ const projects = [
   },
   {
     name: "Voyyage Invest | Fintech Advisory",
+    category: "freelancing",
     description:
       "Problem: Real-time financial advisory was inaccessible to retail investors due to data lag.\nSolution: We built a high-frequency data ingestion engine using Puppeteer and MongoDB.\nImpact: Enabled sub-second price monitoring for 10k+ assets, leading to a 30% increase in alpha for the platform's beta users.",
     tags: [
@@ -301,6 +331,7 @@ const projects = [
   },
   {
     name: "Vichar App | Learning App",
+    category: "freelancing",
     description:
       "Problem: Quality JEE/NEET prep was restricted by geography and high coaching costs.\nSolution: A feature-rich mobile learning platform with offline video downloads and localized test series.\nImpact: Successfully scaled to 10k+ active students with a 4.5+ Play Store rating, democratizing access to elite education.",
     tags: [

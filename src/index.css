@@ -435,3 +435,31 @@ body {
   mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
+
+/* Custom Timeline Line Overlay for Experience section */
+.timeline-line-overlay {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  transform: translateX(-50%);
+  width: 4px;
+  height: calc(100% - 80px);
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+.vertical-timeline {
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media only screen and (max-width: 1169px) {
+  .timeline-line-overlay {
+    left: 18px;
+    transform: none;
+  }
+}

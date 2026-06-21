@@ -162,19 +162,7 @@ const Experience = () => {
           style={{ position: 'relative' }}
         >
           {/* Animated Timeline Line Overlay */}
-          <div style={{
-            position: 'absolute',
-            left: '50%',
-            top: '40px',
-            transform: 'translateX(-50%)',
-            width: '4px',
-            height: 'calc(100% - 80px)',
-            zIndex: '1',
-            pointerEvents: 'none',
-            background: 'rgba(255, 255, 255, 0.1)',
-            borderRadius: '2px',
-            boxShadow: '0 0 8px rgba(255, 255, 255, 0.05)'
-          }}>
+          <div className="timeline-line-overlay">
             {/* Animated Progress Line */}
             <div style={{
               position: 'absolute',
